@@ -4,7 +4,7 @@ export const SignIn = () => {
   return (
     <div>
       signIn
-      <Button variant="FILL" className="bg-green">
+      <Button variant="FILL" className="bg-red-500">
         Кнопка
       </Button>
       <Modal title="ffff">
