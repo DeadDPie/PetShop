@@ -4,9 +4,11 @@ import { Footer } from "../Footer/Footer";
 
 export const Layout = () => {
   return (
-    <div data-label="Home">
+    <div data-label="Home" className="flex flex-col min-h-screen">
       <Header />
-      <Outlet />
+      <div className="flex-grow">
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );
