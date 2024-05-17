@@ -1,8 +1,8 @@
-import food from "./src/assets/images/categories/food.png";
-import clothes from "./src/assets/images/categories/clothes.png";
-import beds from "./src/assets/images/categories/beds.png";
-import toys from "./src/assets/images/categories/toys.png";
-import fillers from "./src/assets/images/categories/fillers.png";
+import food from "@/assets/images/categories/food.png";
+import clothes from "@/assets/images/categories/clothes.png";
+import beds from "@/assets/images/categories/beds.png";
+import toys from "@/assets/images/categories/toys.png";
+import fillers from "@/assets/images/categories/fillers.png";
 
 import { ROUTES } from "./routes";
 
