@@ -11,6 +11,7 @@ export default {
     },
     colors: {
       primary: "#F9A779",
+      primaryDark: "#DB7D5F",
       secondary: "#FFEED0",
       brown: "#3E282F",
       peach: "#FF786C",
