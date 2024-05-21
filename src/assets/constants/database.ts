@@ -1,8 +1,30 @@
 import cora from "@/assets/images/items/cora.png";
 
-export const RECOMENDATION_ITEMS = [
+export interface ReviewProps {
+  rating: number;
+  name: string;
+  review: string;
+}
+export interface ProductProps {
+  id: number;
+  image: string;
+  title: string;
+  price: string;
+  category: "recomendation" | "cats";
+  rating: number;
+  brand: string;
+  for: string;
+  class: string;
+  type: string;
+  description: string;
+  structure: string;
+  reviews: ReviewProps[];
+}
+
+export const PRODUCTS: ProductProps[] = [
   {
     id: 1,
+    category: "recomendation",
     image: cora,
     title: "Клетчатка для собак 'Кора'",
     price: "267",
@@ -20,10 +42,11 @@ export const RECOMENDATION_ITEMS = [
   },
   {
     id: 2,
+    category: "recomendation",
     image: cora,
     title: "Клетчатка для собак 'Кора'",
     price: "267",
-    rating: 4,
+    rating: 5,
     brand: "Cora Int",
     for: "Взрослые собаки",
     class: "Премиум",
@@ -37,10 +60,11 @@ export const RECOMENDATION_ITEMS = [
   },
   {
     id: 3,
+    category: "recomendation",
     image: cora,
     title: "Клетчатка для собак 'Кора'",
     price: "267",
-    rating: 4,
+    rating: 2,
     brand: "Cora Int",
     for: "Взрослые собаки",
     class: "Премиум",
@@ -51,10 +75,11 @@ export const RECOMENDATION_ITEMS = [
   },
   {
     id: 4,
+    category: "recomendation",
     image: cora,
     title: "Клетчатка для собак 'Кора'",
     price: "267",
-    rating: 4,
+    rating: 3,
     brand: "Cora Int",
     for: "Взрослые собаки",
     class: "Премиум",
@@ -68,6 +93,7 @@ export const RECOMENDATION_ITEMS = [
   },
   {
     id: 5,
+    category: "recomendation",
     image: cora,
     title: "Клетчатка для собак 'Кора'",
     price: "267",
@@ -85,6 +111,7 @@ export const RECOMENDATION_ITEMS = [
   },
   {
     id: 6,
+    category: "recomendation",
     image: cora,
     title: "Клетчатка для собак 'Кора'",
     price: "267",
@@ -102,6 +129,7 @@ export const RECOMENDATION_ITEMS = [
   },
   {
     id: 7,
+    category: "recomendation",
     image: cora,
     title: "Клетчатка для собак 'Кора'",
     price: "267",
