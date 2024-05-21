@@ -1,5 +1,5 @@
 import { PRODUCTS } from "@/assets/constants/database";
-import { Rating, Review, Typography } from "@/shared/ui";
+import { Button, Rating, Typography } from "@/shared/ui";
 import { useParams } from "react-router-dom";
 import { Reviews } from "./components/Reviews/Reviews";
 import { Heart } from "tabler-icons-react";
@@ -32,17 +32,58 @@ export const Product = () => {
   return (
     <>
       {product && (
-        <div>
-          {product.image}
-          <div className="relative w-[279px] h-[259px] overflow-hidden">
-            fgb
-            <img
-              src={product.image}
-              className="w-full h-full object-contain flex justify-end relative"
-            />
-            <Heart className="stroke-1 xl:stroke-2 absolute top-[7px] right-[11px]" />
+        <div className="px-[17px] flex flex-col items-center pt-[26px] lg:px-[55px] lg:pt-[71px]">
+          <div className="flex flex-col w-full  items-center lg:items-start lg:justify-between gap-3 max-w-[1360px] lg:flex-row lg:gap-[69px]">
+            <div className="relative w-[170px] h-[220px] xl:ml-[69px]">
+              <img
+                src={product.image}
+                className="w-full h-full object-contain flex justify-end relative"
+              />
+              <Heart className="size-8 lg:hidden stroke-1 xl:stroke-2 absolute top-0 -right-[38px]" />
+            </div>
+
+            <Typography
+              variant="h4"
+              className="text-center lg:hidden max-w-[245px] mb-[6px]"
+            >
+              {product.title}
+            </Typography>
+            <div className="flex w-full lg:hidden justify-between max-w-[280px] items-center mb-[2px]">
+              <p className="text-[24px]">{product.price}₽</p>
+              <Button className="px-[5px] py-[13px]">Добавить в корзину</Button>
+            </div>
+            <div className="w-full lg:w-fit flex flex-col gap-[10px] max-w-[700px] lg:flex-grow lg:max-w-[633px]">
+              <p className="text-[36px] hidden lg:block font-comfortaa">
+                {product.title}
+              </p>
+              <Rating rating={product.rating} />
+              <div className="w-full flex flex-col gap-3">
+                <p className="font-bold">Информация о товаре</p>
+                <div className="flex gap-1">
+                  <p className="font-bold">Бренд:</p>
+                  <p>{product.brand}</p>
+                </div>
+                <div className="flex gap-1">
+                  <p className="font-bold">Для кого:</p>
+                  <p>{product.for}</p>
+                </div>
+                <div className="flex gap-1">
+                  <p className="font-bold">Класс:</p>
+                  <p>{product.class}</p>
+                </div>
+                <p>{product.description}</p>
+
+                <p className="flex flex-wrap">
+                  <span className="font-bold">Состав:</span>
+                  {product.structure}
+                </p>
+              </div>
+            </div>
+            <div className="w-full lg:flex hidden justify-between max-w-[245px] flex-col gap-[10px]">
+              <p className="text-[32px]">{product.price}₽</p>
+              <Button className="px-[5px] py-[13px]">Добавить в корзину</Button>
+            </div>
           </div>
-          <Rating rating={product.rating} />
           <Reviews reviews={product.reviews} />
         </div>
       )}
