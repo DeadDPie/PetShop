@@ -79,9 +79,21 @@ export const Product = () => {
                 </p>
               </div>
             </div>
-            <div className="w-full lg:flex hidden justify-between max-w-[245px] flex-col gap-[10px]">
-              <p className="text-[32px]">{product.price}₽</p>
-              <Button className="px-[5px] py-[13px]">Добавить в корзину</Button>
+            <div className="flex flex-col gap-[61px]">
+              <div className="w-full pl-[13px] lg:flex hidden justify-between flex-col gap-[10px]">
+                <p className="text-[32px]">{product.price}₽</p>
+                <Button className="px-[21px] py-[13px] rounded-[12px] text-[18px] max-w-[245px]">
+                  Добавить в корзину
+                </Button>
+              </div>
+              <div className="w-full lg:flex hidden justify-between items-center max-w-[272px] flex-col">
+                <p className="text-[20px] font-comfortaa">
+                  Сохраните этот товар
+                </p>
+                <Button className="px-[21px] py-[13px] rounded-[12px] bg-pink max-w-[245px] text-[18px]">
+                  Добавить в избранное
+                </Button>
+              </div>
             </div>
           </div>
           <Reviews reviews={product.reviews} />
