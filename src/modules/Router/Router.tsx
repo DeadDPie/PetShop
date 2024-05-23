@@ -5,6 +5,7 @@ import { Main } from "@/pages/main";
 
 import { Layout } from "../Layout/Layout";
 import { Product } from "@/pages/product/Product/Product";
+import { Category } from "@/pages/main/Category/Category";
 
 export const Router = () => (
   <BrowserRouter basename="/">
@@ -14,6 +15,8 @@ export const Router = () => (
         <Route path=":id" element={<Product />} />
         <Route path="sign-in" element={<SignIn />} />
         <Route path="sign-up" element={<SignUp />} />
+        <Route path="animal" element={<Category />} />
+        <Route path="category" element={<Category />} />
       </Route>
     </Routes>
   </BrowserRouter>

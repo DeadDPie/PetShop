@@ -10,7 +10,8 @@ export interface ProductProps {
   image: string;
   title: string;
   price: string;
-  category: "recomendation" | "cats";
+  category: "dogs" | "cats" | "little" | "birds" | "reptiles";
+  isRecommended: boolean;
   rating: number;
   brand: string;
   for: string;
@@ -24,7 +25,8 @@ export interface ProductProps {
 export const PRODUCTS: ProductProps[] = [
   {
     id: 1,
-    category: "recomendation",
+    category: "dogs",
+    isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
     price: "267",
@@ -44,7 +46,8 @@ export const PRODUCTS: ProductProps[] = [
   },
   {
     id: 2,
-    category: "recomendation",
+    category: "dogs",
+    isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
     price: "267",
@@ -64,7 +67,8 @@ export const PRODUCTS: ProductProps[] = [
   },
   {
     id: 3,
-    category: "recomendation",
+    category: "dogs",
+    isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
     price: "267",
@@ -81,7 +85,8 @@ export const PRODUCTS: ProductProps[] = [
   },
   {
     id: 4,
-    category: "recomendation",
+    category: "dogs",
+    isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
     price: "267",
@@ -101,7 +106,8 @@ export const PRODUCTS: ProductProps[] = [
   },
   {
     id: 5,
-    category: "recomendation",
+    category: "dogs",
+    isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
     price: "267",
@@ -121,7 +127,8 @@ export const PRODUCTS: ProductProps[] = [
   },
   {
     id: 6,
-    category: "recomendation",
+    category: "dogs",
+    isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
     price: "267",
@@ -141,7 +148,8 @@ export const PRODUCTS: ProductProps[] = [
   },
   {
     id: 7,
-    category: "recomendation",
+    category: "dogs",
+    isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
     price: "267",

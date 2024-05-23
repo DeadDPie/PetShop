@@ -6,7 +6,13 @@ import reptiles from "@/assets/images/animals/reptiles.png";
 
 import { ROUTES } from "./routes";
 
-export const ANIMALS = [
+interface AnimalProps {
+  image: string;
+  title: string;
+  route: string;
+}
+
+export const ANIMALS: AnimalProps[] = [
   {
     image: cats,
     title: "Кошки",
