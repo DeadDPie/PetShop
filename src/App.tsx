@@ -1,5 +1,10 @@
 import { Router } from "./modules/Router/Router";
+import { QueryProvider } from "./shared/contexts";
 
 export const App = () => {
-  return <Router />;
+  return (
+    <QueryProvider>
+      <Router />
+    </QueryProvider>
+  );
 };
