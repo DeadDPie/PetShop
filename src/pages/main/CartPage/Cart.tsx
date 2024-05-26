@@ -11,8 +11,8 @@ export const Cart = () => {
         Корзина
       </Typography>
       <div className="flex flex-col gap-x-[35px] gap-y-6">
-        {PRODUCTS.map((animal) => (
-          <CartItem {...animal} />
+        {PRODUCTS.map((product) => (
+          <CartItem {...product} />
         ))}
       </div>
     </div>

@@ -34,7 +34,7 @@ export const CartItem = (product: ProductProps) => {
       <div className="flex flex-col place-content-between">
         <Button
           variant="OUTLINE"
-          className="text-xs text-black border-greyDark rounded-[10px] px-2 py-1 xl:text-base "
+          className="text-xs text-[black] border-greyDark rounded-[10px] px-2 py-[4px] xl:text-base "
         >
           Удалить
         </Button>
