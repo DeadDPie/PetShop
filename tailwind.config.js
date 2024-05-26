@@ -8,10 +8,16 @@ export default {
       fontFamily: {
         comfortaa: ['"Comfortaa"', ...defaultTheme.fontFamily.sans],
       },
+      rotate: {
+        140: "140deg",
+        120: "120deg",
+        15: "15deg",
+      },
     },
     colors: {
       primary: "#F9A779",
       primaryDark: "#DB7D5F",
+      beige: "#FBF1E1",
       secondary: "#FFEED0",
       brown: "#3E282F",
       peach: "#FF786C",
