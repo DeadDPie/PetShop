@@ -9,7 +9,17 @@ export interface CartProviderProps {
 }
 
 export const CartProvider = ({ children }: CartProviderProps) => {
-  const [cart, setCart] = React.useState<number[]>([]);
+  const [cart, setCart] = React.useState<number[]>(() => {
+    if (typeof window !== "undefined") {
+      const storedCart = localStorage.getItem("cart");
+      return storedCart ? JSON.parse(storedCart) : [];
+    }
+    return [];
+  });
+
+  React.useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const value = React.useMemo(() => ({ cart, setCart }), [cart, setCart]);
 
