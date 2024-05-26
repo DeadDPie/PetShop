@@ -5,7 +5,7 @@ export const Addresses = () => (
     <div className="text-xl">Адреса магазинов</div>
     <div className="flex flex-col gap-3 text-base">
       {ADDRESSES.map((address) => (
-        <p>{address}</p>
+        <p key={address}>{address}</p>
       ))}
     </div>
   </div>
