@@ -15,7 +15,11 @@ export const ProductCard = (product: ProductProps) => (
         src={product.image}
         className="w-full h-full object-contain flex justify-end absolute bottom-0"
       />
-      <Heart className="stroke-1 xl:stroke-2 absolute top-[7px] right-[11px]" />
+      {true ? (
+        <Heart className="fill-peach stroke-1 xl:stroke-2 absolute top-[7px] right-[11px]" />
+      ) : (
+        <Heart className="stroke-1 xl:stroke-2 absolute top-[7px] right-[11px]" />
+      )}
     </Link>
 
     <p className="text-xs xl:text-base max-w-[168px]">{product.title}</p>
