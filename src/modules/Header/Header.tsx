@@ -2,9 +2,8 @@ import { Heart, Search, ShoppingCart, User } from "tabler-icons-react";
 
 export const Header = () => {
   return (
-    <div className="flex w-full justify-center shadow-md absolute z-20 bg-white xs:bg-transparent">
-      <div className="w-full flex  gap-[55px] max-w-[1440px] z-20 bg-none justify-between items-center lg:px-[60px] px-[15px] py-[10px]">
-        auth-page
+    <div className="flex w-full justify-center z-20 shadow-md">
+      <div className="w-full flex  gap-[55px] max-w-[1440px] bg-none justify-between items-center lg:px-[60px] px-[15px] py-[10px]">
         <div className="flex gap-[5px] lg:gap-[9px] items-center">
           <img
             className="size-[30px] sm:size-[60px]"
