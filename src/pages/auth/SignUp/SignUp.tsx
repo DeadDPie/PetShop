@@ -1,3 +1,5 @@
+import { Layout } from "../Layout/Layout";
+
 export const SignUp = () => {
-  return <div>signUp</div>;
+  return <Layout title="Регистрация">fff</Layout>;
 };
