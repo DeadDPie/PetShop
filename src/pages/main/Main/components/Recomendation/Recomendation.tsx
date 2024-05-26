@@ -7,11 +7,9 @@ export const Recomendation = () => (
       Рекомендуем
     </Typography>
     <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-x-[35px] gap-y-6">
-      {PRODUCTS.filter((product) => product.category === "recomendation").map(
-        (product) => (
-          <ProductCard {...product} />
-        )
-      )}
+      {PRODUCTS.filter((product) => product.isRecommended).map((product) => (
+        <ProductCard {...product} />
+      ))}
     </div>
     <Button
       variant="OUTLINE"

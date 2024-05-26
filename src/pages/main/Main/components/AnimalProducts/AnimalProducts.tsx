@@ -8,11 +8,7 @@ export const AnimalProducts = () => (
     </Typography>
     <div className="grid grid-cols-3 sm:grid-cols-5 xl:gap-x-7 gap-x-[8px] gap-y-6 ">
       {ANIMALS.map((animal) => (
-        <CategoryCard
-          image={animal.image}
-          route={animal.route}
-          title={animal.title}
-        />
+        <CategoryCard {...animal} type="animal" />
       ))}
     </div>
   </div>
