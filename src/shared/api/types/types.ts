@@ -98,3 +98,14 @@ type RequestConfig<Params = undefined> = Params extends undefined
 interface BaseResponse {
   message: string;
 }
+
+interface LoginRequestDto {
+  email: string;
+  password: string;
+}
+
+interface UserRegistrationDto {
+  name: string;
+  email: string;
+  password: string;
+}
