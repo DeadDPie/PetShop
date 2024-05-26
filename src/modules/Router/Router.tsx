@@ -5,7 +5,7 @@ import { Main } from "@/pages/main";
 
 import { Layout } from "../Layout/Layout";
 import { Product } from "@/pages/product/Product/Product";
-import { Category } from "@/pages/main/Category/Category";
+import { Category } from "@/pages/main/CategoryPage/Category";
 
 export const Router = () => (
   <BrowserRouter basename="/">
