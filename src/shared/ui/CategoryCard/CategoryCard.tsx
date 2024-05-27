@@ -1,19 +1,19 @@
 import { Typography } from "@/shared/ui";
-import { Link } from "react-router-dom";
 
 export const CategoryCard = ({
   image,
   title,
-  route,
-  type,
+  key,
+  onClick = () => {},
 }: {
   image: string;
-  route: string;
   title: string;
-  type: "animal" | "category";
+  key: string;
+  onClick?: () => void;
 }) => (
-  <Link
-    to={`/${type}?id=${route}`}
+  <div
+    onClick={onClick}
+    key={key}
     className="bg-secondary hover:bg-primary items-center box-border text-center xl:rounded-[22px] xl:gap-4 h-[130px] xl:h-[250px] xl:w-[200px] px-[7px] rounded-[10px] w-[100px] flex flex-col justify-end pb-[14px]"
   >
     <div className="flex-grow w-full overflow-hidden relative">
@@ -25,5 +25,5 @@ export const CategoryCard = ({
     <Typography variant="h4" className="text-xs xl:text-base">
       {title}
     </Typography>
-  </Link>
+  </div>
 );

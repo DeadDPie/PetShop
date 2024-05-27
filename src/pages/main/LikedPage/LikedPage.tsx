@@ -1,7 +1,9 @@
 import { PRODUCTS } from "@/assets/constants/database";
+import { useLiked } from "@/shared/contexts/liked";
 import { ProductCard, Typography } from "@/shared/ui";
 
 export const LikedPage = () => {
+  const { liked } = useLiked();
   return (
     <div className="w-full">
       <div className="relative flex flex-col items-center pt-[21px] xl:pt-[68px] px-6 pb-[3px] xl:gap-[25px] gap-[8px] mb-[55px]">
@@ -13,9 +15,11 @@ export const LikedPage = () => {
             Избранное
           </Typography>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-[35px] gap-y-6">
-            {PRODUCTS.map((animal) => (
-              <ProductCard {...animal} />
-            ))}
+            {PRODUCTS.filter((product) => liked.includes(product.id)).map(
+              (animal) => (
+                <ProductCard {...animal} />
+              )
+            )}
           </div>
         </div>
       </div>

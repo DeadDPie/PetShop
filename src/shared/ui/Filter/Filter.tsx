@@ -1,31 +1,68 @@
 import { useState } from "react";
-import { ANIMALS } from "@/assets/constants/animals";
 import { PRODUCTS } from "@/assets/constants/database";
 import { Button, Typography } from "@/shared/ui";
-import { SquareCheck, Square } from "tabler-icons-react";
-import { X } from "tabler-icons-react";
+import { X, Square, SquareCheck } from "tabler-icons-react";
+import { ANIMALS } from "@/assets/constants/animals";
 
 interface FilterProps {
-  setModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setModal: (props: boolean) => void;
+  onApplyFilters: (
+    checkedTypes: string[],
+    checkedBrands: string[],
+    minPrice: string,
+    maxPrice: string
+  ) => void;
+  initialSelectedTypes: string[];
+  initialSelectedBrands: string[];
+  initialMinPrice: string | null;
+  initialMaxPrice: string | null;
 }
 
-export const Filter: React.FC<FilterProps> = ({ setModal }) => {
-  const [check, setCheck] = useState<string[]>([]);
+export const Filter = ({
+  setModal,
+  onApplyFilters,
+  initialSelectedTypes,
+  initialSelectedBrands,
+  initialMinPrice,
+  initialMaxPrice,
+}: FilterProps) => {
+  const [checkedTypes, setCheckedTypes] =
+    useState<string[]>(initialSelectedTypes);
+  const [checkedBrands, setCheckedBrands] = useState<string[]>(
+    initialSelectedBrands
+  );
+  const [minPrice, setMinPrice] = useState(initialMinPrice || "");
+  const [maxPrice, setMaxPrice] = useState(initialMaxPrice || "");
+
   const uniqueBrand = [...new Set(PRODUCTS.map((item) => item.brand))];
   const sortedBrands = uniqueBrand.sort((a, b) => a.localeCompare(b));
   const topBrands = sortedBrands.slice(0, 5);
-  // const remainingBrands = sortedBrands.slice(5);
-  const toggleCheck = (title: string) => {
-    setCheck((prevCheck) =>
-      prevCheck.includes(title)
-        ? prevCheck.filter((item) => item !== title)
-        : [...prevCheck, title]
+
+  const toggleTypeCheck = (type: string) => {
+    setCheckedTypes((prevCheckedTypes) =>
+      prevCheckedTypes.includes(type)
+        ? prevCheckedTypes.filter((item) => item !== type)
+        : [...prevCheckedTypes, type]
     );
   };
+
+  const toggleBrandCheck = (brand: string) => {
+    setCheckedBrands((prevCheckedBrands) =>
+      prevCheckedBrands.includes(brand)
+        ? prevCheckedBrands.filter((item) => item !== brand)
+        : [...prevCheckedBrands, brand]
+    );
+  };
+
+  const handleApplyFilters = () => {
+    onApplyFilters(checkedTypes, checkedBrands, minPrice, maxPrice);
+    setModal(false);
+  };
+
   return (
     <div className="bg-white p-8 rounded-[20px] border-white py-[30px] flex flex-col  justify-center max-w-[290px]  lg:border-[2px]  xl:border-greyDark">
       <button
-        className="flex mr-[1px] ml-auto lg:hidden"
+        className="flex mr-[1px] ml-auto xl:hidden"
         onClick={() => setModal(false)}
       >
         <X />
@@ -42,10 +79,11 @@ export const Filter: React.FC<FilterProps> = ({ setModal }) => {
       <div>
         {ANIMALS.map((animal) => (
           <div
+            key={animal.title}
             className="flex flex-row m-[6px] cursor-pointer"
-            onClick={() => toggleCheck(animal.title)}
+            onClick={() => toggleTypeCheck(animal.route)}
           >
-            {check.includes(animal.title) ? (
+            {checkedTypes.includes(animal.route) ? (
               <SquareCheck color="#F9A779" className="cursor-pointer" />
             ) : (
               <Square className="stroke-1" />
@@ -59,45 +97,42 @@ export const Filter: React.FC<FilterProps> = ({ setModal }) => {
         Бренд
       </p>
       <div>
-        {topBrands.map((brand, index) => (
+        {topBrands.map((brand) => (
           <div
+            key={brand}
             className="flex flex-row m-[6px] cursor-pointer"
-            onClick={() => toggleCheck(brand)}
+            onClick={() => toggleBrandCheck(brand)}
           >
-            {check.includes(brand) ? (
+            {checkedBrands.includes(brand) ? (
               <SquareCheck color="#F9A779" className="cursor-pointer" />
             ) : (
               <Square className="stroke-1" />
             )}
-            <p key={index} className="ml-2">
-              {brand}
-            </p>
+            <p className="ml-2">{brand}</p>
           </div>
         ))}
-        <div className="hidden">
-          {/* {remainingBrands.map((brand, index) => (
-            <div className="flex flex-row m-[6px]">
-              {false ? <SquareCheck color="#F9A779" /> : <Square />}
-              <p key={index + 5}>{brand}</p>
-            </div>
-          ))} */}
-        </div>
       </div>
-
       <p className="font-semibold text-[18px] flex justify-center mt-[4px]">
         Цена
       </p>
-      <div className="flex w-full max-w-[240px] justify-between ">
+      <div className="flex w-full max-w-[240px] justify-between">
         <input
           className="m-2 border-2 border-greyDark rounded-lg text-center placeholder-black max-w-[100px] h-[40px]"
           placeholder="от"
+          value={minPrice}
+          onChange={(e) => setMinPrice(e.target.value)}
         />
         <input
           className="m-2 border-2 border-greyDark rounded-lg text-center placeholder-black max-w-[100px]"
           placeholder="до"
+          value={maxPrice}
+          onChange={(e) => setMaxPrice(e.target.value)}
         />
       </div>
-      <Button className="my-5 h-[40px] text-l px-[7px] py-[7px] rounded-[7px] xl:rounded-[12px] xl:px-[10px] xl:py-[10px] xl:text-base">
+      <Button
+        className="my-5 h-[40px] text-l px-[7px] py-[7px] rounded-[7px] xl:rounded-[12px] xl:px-[10px] xl:py-[10px] xl:text-base"
+        onClick={handleApplyFilters}
+      >
         Отфильтровать
       </Button>
     </div>

@@ -18,7 +18,6 @@ export const Router = () => (
         <Route path="sign-in" element={<SignIn />} />
         <Route path="sign-up" element={<SignUp />} />
         <Route path="animal" element={<Category />} />
-        <Route path="category" element={<Category />} />
         <Route path="liked" element={<LikedPage />} />
         <Route path="cart" element={<CartPage />} />
       </Route>
