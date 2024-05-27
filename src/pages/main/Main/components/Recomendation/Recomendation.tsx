@@ -1,26 +1,39 @@
-import { PRODUCTS } from "@/assets/constants/database";
+import { useGetProductsQuery } from "@/shared/api/hooks/useGetProductsQuery";
 import { Button, ProductCard, Typography } from "@/shared/ui";
 import { Link } from "react-router-dom";
 
-export const Recomendation = () => (
-  <div className="relative flex flex-col items-center pt-[21px] xl:pt-[68px] px-6 pb-[3px] xl:gap-[25px] gap-[8px] mb-[55px]">
-    <Typography variant="h4" className="xl:text-[32px]">
-      Рекомендуем
-    </Typography>
-    <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-x-[35px] gap-y-6">
-      {PRODUCTS.slice(0, 5)
-        .filter((product) => product.isRecommended)
-        .map((product) => (
-          <ProductCard {...product} />
-        ))}
-    </div>
-    <Link to="animal">
-      <Button
-        variant="OUTLINE"
-        className="text-xs rounded-[7px] mt-7  px-6 py-[7px]"
-      >
-        Больше
-      </Button>
-    </Link>
-  </div>
-);
+export const Recomendation = () => {
+  const { data, isSuccess } = useGetProductsQuery({
+    params: {
+      limit: "5",
+      current: "1",
+    },
+  });
+
+  return (
+    <>
+      {data && isSuccess && (
+        <div className="relative flex flex-col items-center pt-[21px] xl:pt-[68px] px-6 pb-[3px] xl:gap-[25px] gap-[8px] mb-[55px]">
+          <Typography variant="h4" className="xl:text-[32px]">
+            Рекомендуем
+          </Typography>
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-x-[35px] gap-y-6">
+            {data.rows
+              .filter((product) => product.isRecommended)
+              .map((product) => (
+                <ProductCard {...product} />
+              ))}
+          </div>
+          <Link to="animal">
+            <Button
+              variant="OUTLINE"
+              className="text-xs rounded-[7px] mt-7  px-6 py-[7px]"
+            >
+              Больше
+            </Button>
+          </Link>
+        </div>
+      )}
+    </>
+  );
+};

@@ -3,6 +3,9 @@ import { Button, Rating, Typography } from "@/shared/ui";
 import { useParams } from "react-router-dom";
 import { Reviews } from "./components/Reviews/Reviews";
 import { Heart } from "tabler-icons-react";
+import { useGetProductByIdQuery } from "@/shared/api/hooks/useGetProductByIdQuery";
+import { useLiked } from "@/shared/contexts/liked";
+import { useCart } from "@/shared/contexts/cart";
 
 export interface ReviewProps {
   rating: number;
@@ -27,11 +30,33 @@ export interface ProductProps {
 
 export const Product = () => {
   const { id } = useParams<{ id: string }>();
-  const product = PRODUCTS.find((p) => p.id === parseInt(id || "", 10));
+  const { data: product, isSuccess } = useGetProductByIdQuery({
+    id: id as string,
+  });
+  console.log(product);
+
+  const { liked, setLiked } = useLiked();
+  const { cart, setCart } = useCart();
+
+  const toggleLiked = () => {
+    if (liked.includes(product!.id)) {
+      setLiked(liked.filter((id) => id !== product!.id)); // Remove from liked
+    } else {
+      setLiked([...liked, product!.id]); // Add to liked
+    }
+  };
+
+  const toggleCart = () => {
+    if (cart.includes(product!.id)) {
+      setCart(cart.filter((id) => id !== product!.id)); // Remove from cart
+    } else {
+      setCart([...cart, product!.id]); // Add to cart
+    }
+  };
 
   return (
     <>
-      {product && (
+      {product && isSuccess && (
         <div className="px-[17px] flex flex-col items-center pt-[26px] lg:px-[55px] lg:pt-[71px]">
           <div className="flex flex-col w-full  items-center lg:items-start lg:justify-between gap-3 max-w-[1360px] lg:flex-row lg:gap-[69px]">
             <div className="relative w-[170px] h-[220px] xl:ml-[69px]">
@@ -39,7 +64,17 @@ export const Product = () => {
                 src={product.image}
                 className="w-full h-full object-contain flex justify-end relative"
               />
-              <Heart className="size-8 lg:hidden stroke-1 xl:stroke-2 absolute top-0 -right-[38px]" />
+              {liked.includes(product.id) ? (
+                <Heart
+                  className="fill-peach size-8 lg:hidden stroke-1 xl:stroke-2 absolute top-0 -right-[38px] cursor-pointer"
+                  onClick={toggleLiked}
+                />
+              ) : (
+                <Heart
+                  className="size-8 lg:hidden stroke-1 xl:stroke-2 absolute top-0 -right-[38px] cursor-pointer"
+                  onClick={toggleLiked}
+                />
+              )}
             </div>
 
             <Typography
@@ -50,7 +85,19 @@ export const Product = () => {
             </Typography>
             <div className="flex w-full lg:hidden justify-between max-w-[280px] items-center mb-[2px]">
               <p className="text-[24px]">{product.price}₽</p>
-              <Button className="px-[5px] py-[13px]">Добавить в корзину</Button>
+              {cart.includes(product.id) ? (
+                <Button
+                  variant="OUTLINE"
+                  className="px-[5px] py-[13px] min-w-[190px]"
+                  onClick={toggleCart}
+                >
+                  В корзине
+                </Button>
+              ) : (
+                <Button className="px-[5px] py-[13px]" onClick={toggleCart}>
+                  Добавить в корзину
+                </Button>
+              )}
             </div>
             <div className="w-full lg:w-fit flex flex-col gap-[10px] max-w-[700px] lg:flex-grow lg:max-w-[633px]">
               <p className="text-[36px] hidden lg:block font-comfortaa">
@@ -82,9 +129,22 @@ export const Product = () => {
             <div className="flex flex-col gap-[61px]">
               <div className="w-full pl-[13px] lg:flex hidden justify-between flex-col gap-[10px]">
                 <p className="text-[32px]">{product.price}₽</p>
-                <Button className="px-[21px] py-[13px] rounded-[12px] text-[18px] max-w-[245px]">
-                  Добавить в корзину
-                </Button>
+                {cart.includes(product.id) ? (
+                  <Button
+                    variant="OUTLINE"
+                    className="px-[21px] py-[13px] rounded-[12px] text-[18px] max-w-[245px]"
+                    onClick={toggleCart}
+                  >
+                    В корзине
+                  </Button>
+                ) : (
+                  <Button
+                    className="px-[21px] py-[13px] rounded-[12px] text-[18px] max-w-[245px]"
+                    onClick={toggleCart}
+                  >
+                    Добавить в корзину
+                  </Button>
+                )}
               </div>
               <div className="w-full lg:flex hidden justify-between items-center max-w-[272px] flex-col">
                 <p className="text-[20px] font-comfortaa">

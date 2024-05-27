@@ -1,3 +1,5 @@
+const cora = "http://localhost:31299/static/images/products/cora.png";
+
 export interface ReviewProps {
   rating: number;
   name: string;
@@ -8,7 +10,9 @@ export interface ProductProps {
   image: string;
   title: string;
   price: string;
-  category: "recomendation" | "cats";
+  animal: "dogs" | "cats" | "little" | "birds" | "reptiles";
+  category: "food" | "clothes" | "beds" | "toys" | "fillers";
+  isRecommended: boolean;
   rating: number;
   brand: string;
   for: string;
@@ -19,12 +23,12 @@ export interface ProductProps {
   reviews: ReviewProps[];
 }
 
-const cora = "http://localhost:31299/static/images/products/cora.png";
-
 export const PRODUCTS: ProductProps[] = [
   {
     id: 1,
-    category: "recomendation",
+    category: "food",
+    animal: "dogs",
+    isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
     price: "267",
@@ -44,12 +48,14 @@ export const PRODUCTS: ProductProps[] = [
   },
   {
     id: 2,
-    category: "recomendation",
+    category: "food",
+    animal: "dogs",
+    isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
     price: "267",
     rating: 5,
-    brand: "Cora Int",
+    brand: "Amo",
     for: "Взрослые собаки",
     class: "Премиум",
     type: "Сухой корм",
@@ -64,12 +70,14 @@ export const PRODUCTS: ProductProps[] = [
   },
   {
     id: 3,
-    category: "recomendation",
+    category: "food",
+    animal: "dogs",
+    isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
     price: "267",
     rating: 2,
-    brand: "Cora Int",
+    brand: "Carve",
     for: "Взрослые собаки",
     class: "Премиум",
     type: "Сухой корм",
@@ -81,12 +89,14 @@ export const PRODUCTS: ProductProps[] = [
   },
   {
     id: 4,
-    category: "recomendation",
+    category: "food",
+    animal: "dogs",
+    isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
     price: "267",
     rating: 3,
-    brand: "Cora Int",
+    brand: "Cos",
     for: "Взрослые собаки",
     class: "Премиум",
     type: "Сухой корм",
@@ -101,12 +111,14 @@ export const PRODUCTS: ProductProps[] = [
   },
   {
     id: 5,
-    category: "recomendation",
+    category: "food",
+    animal: "dogs",
+    isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
     price: "267",
     rating: 4,
-    brand: "Cora Int",
+    brand: "ACora Int",
     for: "Взрослые собаки",
     class: "Премиум",
     type: "Сухой корм",
@@ -121,7 +133,9 @@ export const PRODUCTS: ProductProps[] = [
   },
   {
     id: 6,
-    category: "recomendation",
+    category: "food",
+    animal: "dogs",
+    isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
     price: "267",
@@ -141,12 +155,14 @@ export const PRODUCTS: ProductProps[] = [
   },
   {
     id: 7,
-    category: "recomendation",
+    category: "food",
+    animal: "dogs",
+    isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
     price: "267",
     rating: 4,
-    brand: "Cora Int",
+    brand: "SCora Int",
     for: "Взрослые собаки",
     class: "Премиум",
     type: "Сухой корм",

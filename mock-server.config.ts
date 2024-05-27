@@ -19,7 +19,7 @@ const mockServerConfig: MockServerConfig = {
     configs: Object.values(requests),
   },
   staticPath: {
-    path: "/mock/static",
+    path: "/src/mock/static",
     prefix: "/static",
   },
 };
