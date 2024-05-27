@@ -1,7 +1,9 @@
-import { PRODUCTS } from "@/assets/constants/database";
+import { PRODUCTS } from "@/mock/database/database";
 import { CartItem } from "./CartItem";
 import { Typography } from "@/shared/ui";
+import { useCart } from "@/shared/contexts/cart";
 export const Cart = () => {
+  const { cart } = useCart();
   return (
     <div>
       <Typography
@@ -11,7 +13,9 @@ export const Cart = () => {
         Корзина
       </Typography>
       <div className="flex flex-col gap-x-[35px] gap-y-6">
-        {PRODUCTS.map((product) => (
+        {PRODUCTS.filter((product) =>
+          cart.some((item) => item.id === product.id)
+        ).map((product) => (
           <CartItem {...product} />
         ))}
       </div>

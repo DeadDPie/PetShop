@@ -1,4 +1,4 @@
-import { PRODUCTS } from "@/assets/constants/database";
+import { PRODUCTS } from "@/mock/database/database";
 import { useLiked } from "@/shared/contexts/liked";
 import { ProductCard, Typography } from "@/shared/ui";
 

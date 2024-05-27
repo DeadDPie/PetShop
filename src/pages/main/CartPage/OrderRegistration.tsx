@@ -1,7 +1,14 @@
 import { ADDRESSES } from "@/assets/constants/addresses";
+import { useCart } from "@/shared/contexts/cart";
 import { Button, Typography } from "@/shared/ui";
 
 export const OrderRegistration = () => {
+  const { cart } = useCart();
+
+  const totalPrice = cart
+    .map((item) => item.amount * item.price)
+    .reduce((total, price) => total + price, 0);
+
   return (
     <div>
       <Typography
@@ -62,7 +69,7 @@ export const OrderRegistration = () => {
             variant="h4"
             className="flex justify-start mb-7 xl:text-[30px]"
           >
-            Итого: {"1128"}
+            Итого: {totalPrice}
           </Typography>
           <Button type="submit" className="xl:text-2xl   ">
             Оформить заказ

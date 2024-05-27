@@ -1,3 +1,5 @@
+import { BaseUrl, Interceptors } from "mock-config-server";
+
 type HttpClientSearchParams = {
   [key: string]: string | number | boolean | string[];
 };

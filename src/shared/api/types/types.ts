@@ -1,4 +1,4 @@
-interface MutationSettings<Params = void, Func = unknown> {
+export interface MutationSettings<Params = void, Func = unknown> {
   config?: RequestConfig;
   options?: import("@tanstack/react-query").UseMutationOptions<
     Awaited<ReturnType<Func>>,
@@ -8,7 +8,7 @@ interface MutationSettings<Params = void, Func = unknown> {
   >;
 }
 
-interface QuerySettings<Func = unknown> {
+export interface QuerySettings<Func = unknown> {
   config?: RequestOptions;
   options?: Omit<
     import("@tanstack/react-query").UseQueryOptions<
@@ -108,4 +108,27 @@ interface UserRegistrationDto {
   name: string;
   email: string;
   password: string;
+}
+
+export interface ReviewProps {
+  rating: number;
+  name: string;
+  review: string;
+}
+export interface ProductProps {
+  id: number;
+  image: string;
+  title: string;
+  price: number;
+  animal: "dogs" | "cats" | "little" | "birds" | "reptiles";
+  category: "food" | "clothes" | "beds" | "toys" | "fillers";
+  isRecommended: boolean;
+  rating: number;
+  brand: string;
+  for: string;
+  class: string;
+  type: string;
+  description: string;
+  structure: string;
+  reviews: ReviewProps[];
 }

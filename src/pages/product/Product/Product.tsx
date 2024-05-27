@@ -1,4 +1,3 @@
-import { PRODUCTS } from "@/assets/constants/database";
 import { Button, Rating, Typography } from "@/shared/ui";
 import { useParams } from "react-router-dom";
 import { Reviews } from "./components/Reviews/Reviews";
@@ -6,27 +5,6 @@ import { Heart } from "tabler-icons-react";
 import { useGetProductByIdQuery } from "@/shared/api/hooks/useGetProductByIdQuery";
 import { useLiked } from "@/shared/contexts/liked";
 import { useCart } from "@/shared/contexts/cart";
-
-export interface ReviewProps {
-  rating: number;
-  name: string;
-  review: string;
-}
-
-export interface ProductProps {
-  id: number;
-  image: string;
-  title: string;
-  price: string;
-  rating: number;
-  brand: string;
-  for: string;
-  class: string;
-  type: string;
-  description: string;
-  structure: string;
-  reviews: ReviewProps[];
-}
 
 export const Product = () => {
   const { id } = useParams<{ id: string }>();
@@ -39,17 +17,17 @@ export const Product = () => {
 
   const toggleLiked = () => {
     if (liked.includes(product!.id)) {
-      setLiked(liked.filter((id) => id !== product!.id)); // Remove from liked
+      setLiked(liked.filter((id) => id !== product!.id));
     } else {
-      setLiked([...liked, product!.id]); // Add to liked
+      setLiked([...liked, product!.id]);
     }
   };
 
   const toggleCart = () => {
-    if (cart.includes(product!.id)) {
-      setCart(cart.filter((id) => id !== product!.id)); // Remove from cart
+    if (!!cart.length && cart.find((cart) => cart.id === product.id)) {
+      setCart(cart.filter((cart) => cart.id !== product.id));
     } else {
-      setCart([...cart, product!.id]); // Add to cart
+      setCart([...cart, { id: product.id, amount: 1, price: product.price }]);
     }
   };
 
@@ -84,7 +62,7 @@ export const Product = () => {
             </Typography>
             <div className="flex w-full lg:hidden justify-between max-w-[280px] items-center mb-[2px]">
               <p className="text-[24px]">{product.price}₽</p>
-              {cart.includes(product.id) ? (
+              {cart.find((cart) => cart.id === product.id) ? (
                 <Button
                   variant="OUTLINE"
                   className="px-[5px] py-[13px] min-w-[190px]"
@@ -128,7 +106,7 @@ export const Product = () => {
             <div className="flex flex-col gap-[61px]">
               <div className="w-full pl-[13px] lg:flex hidden justify-between flex-col gap-[10px]">
                 <p className="text-[32px]">{product.price}₽</p>
-                {cart.includes(product.id) ? (
+                {cart.find((cart) => cart.id === product.id) ? (
                   <Button
                     variant="OUTLINE"
                     className="px-[21px] py-[13px] rounded-[12px] text-[18px] max-w-[245px]"
@@ -149,8 +127,11 @@ export const Product = () => {
                 <p className="text-[20px] font-comfortaa">
                   Сохраните этот товар
                 </p>
+
                 <Button className="px-[21px] py-[13px] rounded-[12px] bg-pink max-w-[245px] text-[18px]">
-                  Добавить в избранное
+                  {liked.includes(product.id)
+                    ? "Удалить из избранного"
+                    : "Добавить в избранное"}
                 </Button>
               </div>
             </div>

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { PRODUCTS } from "@/assets/constants/database";
 import { Button, Typography } from "@/shared/ui";
 import { X, Square, SquareCheck } from "tabler-icons-react";
 import { ANIMALS } from "@/assets/constants/animals";
+import { PRODUCTS } from "@/mock/database/database";
 
 interface FilterProps {
   setModal: (props: boolean) => void;

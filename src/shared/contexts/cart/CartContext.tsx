@@ -1,10 +1,13 @@
-"use client";
-
 import React from "react";
 
+export interface CartProps {
+  id: number;
+  amount: number;
+  price: number;
+}
 export interface CartContextParams {
-  cart: number[];
-  setCart: (product: number[]) => void;
+  cart: CartProps[];
+  setCart: (product: CartProps[]) => void;
 }
 
 export const CartContext = React.createContext<CartContextParams>({

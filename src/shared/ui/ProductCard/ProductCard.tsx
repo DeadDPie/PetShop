@@ -1,11 +1,10 @@
 import { Heart } from "tabler-icons-react";
 import { Link } from "react-router-dom";
 
-import { ProductProps } from "@/assets/constants/database";
-
 import { Button } from "../Button/Button";
 import { useLiked } from "@/shared/contexts/liked";
 import { useCart } from "@/shared/contexts/cart";
+import { ProductProps } from "@/shared/api/types/types";
 
 export const ProductCard = (product: ProductProps) => {
   const { liked, setLiked } = useLiked();
@@ -13,17 +12,17 @@ export const ProductCard = (product: ProductProps) => {
 
   const toggleLiked = () => {
     if (liked.includes(product.id)) {
-      setLiked(liked.filter((id) => id !== product.id)); // Remove from liked
+      setLiked(liked.filter((id) => id !== product.id));
     } else {
-      setLiked([...liked, product.id]); // Add to liked
+      setLiked([...liked, product.id]);
     }
   };
 
   const toggleCart = () => {
-    if (cart.includes(product.id)) {
-      setCart(cart.filter((id) => id !== product.id)); // Remove from cart
+    if (!!cart.length && cart.find((cart) => cart.id === product.id)) {
+      setCart(cart.filter((cart) => cart.id !== product.id));
     } else {
-      setCart([...cart, product.id]); // Add to cart
+      setCart([...cart, { id: product.id, amount: 1, price: product.price }]);
     }
   };
 
@@ -55,7 +54,7 @@ export const ProductCard = (product: ProductProps) => {
         <p className="text-sm px-[7px] xl:px-[15px] xl:text-base">
           {product.price}₽
         </p>
-        {cart.includes(product.id) ? (
+        {cart.find((cart) => cart.id === product.id) ? (
           <Button
             variant="OUTLINE"
             className="text-xs px-[7px] py-[7px] rounded-[7px] xl:rounded-[12px] xl:px-[10px] xl:py-[10px] xl:text-base"

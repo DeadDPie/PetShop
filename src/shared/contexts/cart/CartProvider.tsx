@@ -2,14 +2,14 @@
 
 import React from "react";
 
-import { CartContext } from "./CartContext";
+import { CartContext, CartProps } from "./CartContext";
 
 export interface CartProviderProps {
   children: React.ReactNode;
 }
 
 export const CartProvider = ({ children }: CartProviderProps) => {
-  const [cart, setCart] = React.useState<number[]>(() => {
+  const [cart, setCart] = React.useState<CartProps[]>(() => {
     if (typeof window !== "undefined") {
       const storedCart = localStorage.getItem("cart");
       return storedCart ? JSON.parse(storedCart) : [];

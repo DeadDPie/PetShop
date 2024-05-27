@@ -1,27 +1,6 @@
-const cora = "http://localhost:31299/static/images/products/cora.png";
+import { ProductProps } from "@/shared/api/types/types";
 
-export interface ReviewProps {
-  rating: number;
-  name: string;
-  review: string;
-}
-export interface ProductProps {
-  id: number;
-  image: string;
-  title: string;
-  price: string;
-  animal: "dogs" | "cats" | "little" | "birds" | "reptiles";
-  category: "food" | "clothes" | "beds" | "toys" | "fillers";
-  isRecommended: boolean;
-  rating: number;
-  brand: string;
-  for: string;
-  class: string;
-  type: string;
-  description: string;
-  structure: string;
-  reviews: ReviewProps[];
-}
+const cora = "http://localhost:31299/static/images/products/cora.png";
 
 export const PRODUCTS: ProductProps[] = [
   {
@@ -31,7 +10,7 @@ export const PRODUCTS: ProductProps[] = [
     isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
-    price: "267",
+    price: 267,
     rating: 4,
     brand: "Cora Int",
     for: "Взрослые собаки",
@@ -53,7 +32,7 @@ export const PRODUCTS: ProductProps[] = [
     isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
-    price: "267",
+    price: 267,
     rating: 5,
     brand: "Amo",
     for: "Взрослые собаки",
@@ -75,7 +54,7 @@ export const PRODUCTS: ProductProps[] = [
     isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
-    price: "267",
+    price: 267,
     rating: 2,
     brand: "Carve",
     for: "Взрослые собаки",
@@ -94,7 +73,7 @@ export const PRODUCTS: ProductProps[] = [
     isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
-    price: "267",
+    price: 267,
     rating: 3,
     brand: "Cos",
     for: "Взрослые собаки",
@@ -116,7 +95,7 @@ export const PRODUCTS: ProductProps[] = [
     isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
-    price: "267",
+    price: 267,
     rating: 4,
     brand: "ACora Int",
     for: "Взрослые собаки",
@@ -138,7 +117,7 @@ export const PRODUCTS: ProductProps[] = [
     isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
-    price: "267",
+    price: 267,
     rating: 4,
     brand: "Cora Int",
     for: "Взрослые собаки",
@@ -160,7 +139,7 @@ export const PRODUCTS: ProductProps[] = [
     isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
-    price: "267",
+    price: 267,
     rating: 4,
     brand: "SCora Int",
     for: "Взрослые собаки",
@@ -179,7 +158,7 @@ export const PRODUCTS: ProductProps[] = [
     isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
-    price: "267",
+    price: 267,
     rating: 3,
     brand: "Cos",
     for: "Взрослые собаки",
@@ -201,7 +180,7 @@ export const PRODUCTS: ProductProps[] = [
     isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
-    price: "267",
+    price: 267,
     rating: 4,
     brand: "ACora Int",
     for: "Взрослые собаки",
@@ -223,7 +202,7 @@ export const PRODUCTS: ProductProps[] = [
     isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
-    price: "267",
+    price: 267,
     rating: 4,
     brand: "Cora Int",
     for: "Взрослые собаки",
@@ -245,7 +224,7 @@ export const PRODUCTS: ProductProps[] = [
     isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
-    price: "267",
+    price: 267,
     rating: 4,
     brand: "SCora Int",
     for: "Взрослые собаки",
@@ -264,7 +243,7 @@ export const PRODUCTS: ProductProps[] = [
     isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
-    price: "267",
+    price: 267,
     rating: 3,
     brand: "Cos",
     for: "Взрослые собаки",
@@ -286,7 +265,7 @@ export const PRODUCTS: ProductProps[] = [
     isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
-    price: "267",
+    price: 267,
     rating: 4,
     brand: "ACora Int",
     for: "Взрослые собаки",
@@ -308,7 +287,7 @@ export const PRODUCTS: ProductProps[] = [
     isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
-    price: "267",
+    price: 267,
     rating: 4,
     brand: "Cora Int",
     for: "Взрослые собаки",
@@ -330,7 +309,7 @@ export const PRODUCTS: ProductProps[] = [
     isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
-    price: "267",
+    price: 267,
     rating: 4,
     brand: "SCora Int",
     for: "Взрослые собаки",
