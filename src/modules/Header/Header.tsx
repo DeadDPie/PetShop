@@ -36,7 +36,9 @@ export const Header = () => {
               </div>
             )}
           </Link>
-          <User className="size-[30px] lg:size-[45px] fill-brown stroke-1" />
+          <Link to="/account" className="relative w-fit">
+            <User className="size-[30px] lg:size-[45px] fill-brown stroke-1" />
+          </Link>
           <Link to="/cart" className="relative w-fit">
             <ShoppingCart className="size-[30px] lg:size-[45px] stroke-1" />
             {cart.length > 0 && (
