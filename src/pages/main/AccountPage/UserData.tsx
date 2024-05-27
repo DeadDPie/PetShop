@@ -4,7 +4,7 @@ import { Edit } from "tabler-icons-react";
 export const UserData = () => {
   return (
     <div className="flex flex-col gap-5 items-center">
-      <div className="bg-secondary p-4 rounded-[20px]  py-[30px] flex flex-col  justify-center max-w-[700px] ">
+      <div className="bg-secondary p-4 rounded-[20px]  py-[30px] flex flex-col  justify-center max-w-[700px] xl:px-[50px] xl:py-[40px]">
         <div className="flex flex-col items-center max-w-[625px] gap-4 md:gap-5">
           <div className="flex flex-row ">
             <Typography variant="h3">Данные пользователя</Typography>
