@@ -6,3 +6,4 @@ export * from "./CategoryCard/CategoryCard";
 export * from "./ProductCard/ProductCard";
 export * from "./Rating/Rating";
 export * from "./Review/Review";
+export * from "./Pagination/Pagination";

@@ -33,7 +33,6 @@ export const Product = () => {
   const { data: product, isSuccess } = useGetProductByIdQuery({
     id: id as string,
   });
-  console.log(product);
 
   const { liked, setLiked } = useLiked();
   const { cart, setCart } = useCart();

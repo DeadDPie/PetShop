@@ -3,8 +3,8 @@ import { api } from "@/shared/api/instance";
 
 interface GetProductsResponse {
   pagination: {
-    limit: string;
-    current: string;
+    limit: number;
+    current: number;
     count: number;
   };
   rows: ProductProps[];
