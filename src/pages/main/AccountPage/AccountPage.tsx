@@ -1,6 +1,5 @@
-import React from "react";
 import { UserData } from "./UserData";
-import { PurchaseHystory } from "./PurchaseHystory";
+import { PurchaseHystory } from "./PurchaseHistory";
 
 export const AccountPage = () => {
   return (

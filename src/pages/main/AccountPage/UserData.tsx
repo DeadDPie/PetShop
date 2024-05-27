@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Button, Typography } from "@/shared/ui";
 import { Edit } from "tabler-icons-react";
 
@@ -7,25 +5,25 @@ export const UserData = () => {
   return (
     <div className="flex flex-col gap-5 items-center">
       <div className="bg-secondary p-4 rounded-[20px]  py-[30px] flex flex-col  justify-center max-w-[700px] ">
-        <div className="flex flex-col  md:gap-[30px]  items-center max-w-[625px] gap-4">
+        <div className="flex flex-col items-center max-w-[625px] gap-4 md:gap-5">
           <div className="flex flex-row ">
             <Typography variant="h3">Данные пользователя</Typography>
             <Edit className="bg-white rounded ml-4" />
           </div>
 
-          <div className="w-full text-sm md:text-xl px-3 py-2 bg-white rounded-[6px] mb-1 md:rounded-[15px] md:px-[54px] md:py-[25px]">
+          <div className="w-full text-sm md:text-xl px-3 py-2 bg-white rounded-[6px] mb-1 ">
             <Typography variant="h4" className="pl-2">
               {"Екатерина"}
             </Typography>
           </div>
 
-          <div className="w-full text-sm md:text-xl px-3 py-2 bg-white rounded-[6px] mb-1 md:rounded-[15px] md:px-[54px] md:py-[25px]">
+          <div className="w-full text-sm md:text-xl px-3 py-2 bg-white rounded-[6px] mb-1 ">
             <Typography variant="h4" className="pl-2">
               {"Почта"}
             </Typography>
           </div>
 
-          <div className="w-full text-sm md:text-xl px-3 py-2 bg-white rounded-[6px] mb-1 md:rounded-[15px] md:px-[54px] md:py-[25px]">
+          <div className="w-full text-sm md:text-xl px-3 py-2 bg-white rounded-[6px] mb-1 ">
             <Typography variant="h4" className="pl-2">
               {" 8 912 897 12 45"}
             </Typography>
