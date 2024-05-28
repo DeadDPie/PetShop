@@ -99,7 +99,7 @@ export const PRODUCTS: ProductProps[] = [
     isRecommended: true,
     image: cora,
     title: "Клетчатка для собак 'Кора'",
-    tag: null,
+    tag: "Новинка",
     price: 267,
     rating: 4,
     brand: "ACora Int",

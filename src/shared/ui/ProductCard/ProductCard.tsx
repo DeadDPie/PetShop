@@ -27,26 +27,37 @@ export const ProductCard = (product: ProductProps) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-between w-[129px] h-[197px] xl:h-[299px] gap-[5px] xl:gap-[10px] xl:w-[208px]">
+    <div className="flex flex-col items-center justify-between w-[129px] h-[197px] xl:h-[299px] gap-[5px] xl:gap-[10px] xl:w-[200px]">
       {product.image && (
         <div
-          className={`flex-grow w-full overflow-hidden relative cursor-pointer ${
+          className={`flex-grow w-full h-full overflow-hidden relative cursor-pointer ${
             product.tag === "Новинка" &&
             "rounded-[13px] border-[3px] border-pink"
           }  ${
             product.tag === "Эксклюзив" &&
-            "rounded-[13px] border-[3px] border-secondary"
+            "rounded-[13px] border-[3px] border-yellow"
           }`}
         >
-          <Link to={`/${product.id}`}>
+          <Link
+            to={`/${product.id}`}
+            className={`w-full h-full flex items-center justify-center mx-auto ${
+              product.tag !== null && "flex-col"
+            }`}
+          >
             <img
               src={product.image}
-              className={`w-full h-full object-contain flex justify-end  ${
-                product.tag !== null &&
-                "bottom-2 h-[100px] !w-[100px]"
+              className={`w-full h-full object-contain  ${
+                product.tag !== null && "bottom-2 !h-[70%] self-center !w-[70%]"
               }`}
             />
           </Link>
+          <div
+            className={`absolute left-1 xl:left-[10px] text-white text-xs xl:text-base font-comfortaa rounded-[20px] top-1 xl:top-[12px] px-1 xl:px-3 py-1 ${
+              product.tag === "Новинка" && "bg-pink"
+            }  ${product.tag === "Эксклюзив" && "bg-yellow"}`}
+          >
+            {product.tag}
+          </div>
           {liked.includes(product.id) ? (
             <Heart
               className="fill-peach stroke-1 xl:stroke-2 absolute top-[7px] right-[11px]"

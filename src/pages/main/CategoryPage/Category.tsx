@@ -24,7 +24,7 @@ export const Category = () => {
   const selectedPage = searchParams.get("current");
 
   const { data, isSuccess, isFetching } = useGetProductsQuery({
-    params: { limit: "4", current: selectedPage || "1" },
+    params: { limit: "40", current: selectedPage || "1" },
   });
 
   const handleCategoryClick = (category: string) => {
