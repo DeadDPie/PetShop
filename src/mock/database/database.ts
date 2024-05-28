@@ -4,7 +4,7 @@ const cora = "http://localhost:31299/static/images/products/cora.png";
 
 export const PRODUCTS: ProductProps[] = [
   {
-    id: 1,
+    id: 11,
     category: "food",
     animal: "dogs",
     isRecommended: true,
@@ -27,7 +27,7 @@ export const PRODUCTS: ProductProps[] = [
     ],
   },
   {
-    id: 2,
+    id: 12,
     category: "food",
     animal: "dogs",
     isRecommended: true,
@@ -50,7 +50,7 @@ export const PRODUCTS: ProductProps[] = [
     ],
   },
   {
-    id: 3,
+    id: 13,
     category: "food",
     animal: "dogs",
     isRecommended: true,
@@ -70,7 +70,7 @@ export const PRODUCTS: ProductProps[] = [
     reviews: [{ rating: 5, name: "Николай", review: "сойдёт" }],
   },
   {
-    id: 4,
+    id: 14,
     category: "food",
     animal: "dogs",
     isRecommended: true,
@@ -93,7 +93,7 @@ export const PRODUCTS: ProductProps[] = [
     ],
   },
   {
-    id: 5,
+    id: 15,
     category: "food",
     animal: "dogs",
     isRecommended: true,
@@ -116,7 +116,7 @@ export const PRODUCTS: ProductProps[] = [
     ],
   },
   {
-    id: 6,
+    id: 16,
     category: "food",
     animal: "dogs",
     isRecommended: true,
@@ -139,7 +139,7 @@ export const PRODUCTS: ProductProps[] = [
     ],
   },
   {
-    id: 7,
+    id: 17,
     category: "food",
     animal: "dogs",
     isRecommended: true,
@@ -317,7 +317,7 @@ export const PRODUCTS: ProductProps[] = [
     ],
   },
   {
-    id: 11,
+    id: 111,
     category: "food",
     animal: "dogs",
     isRecommended: true,
