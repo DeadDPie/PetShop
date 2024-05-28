@@ -9,7 +9,7 @@ export const Header = () => {
 
   return (
     <div className="flex w-full justify-center z-20 shadow-md">
-      <div className="w-full flex  gap-[55px] max-w-[1440px] bg-none justify-between items-center lg:px-[60px] px-[15px] py-[10px]">
+      <div className="w-full flex  gap-[55px] max-w-[1440px] bg-none justify-between items-center lg:px-[60px] px-[15px] py-[10px] ">
         <Link
           to="/"
           className="flex gap-[5px] lg:gap-[9px] items-center cursor-pointer"
