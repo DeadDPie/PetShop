@@ -5,11 +5,13 @@ interface UserDataProps {
   setModal: (props: boolean) => void;
   setModalEdit: (props: boolean) => void;
   setModalEditUserData: (props: boolean) => void;
+  setModalPartner: (props: boolean) => void;
 }
 export const UserData = ({
   setModal,
   setModalEdit,
   setModalEditUserData,
+  setModalPartner,
 }: UserDataProps) => {
   return (
     <div className="flex flex-col gap-5 items-center">
@@ -56,7 +58,10 @@ export const UserData = ({
           </Button>
         </div>
       </div>
-      <button className="bg-white border border-brown px-2 py-1 rounded-[10px] ">
+      <button
+        className="bg-white border border-brown px-2 py-1 rounded-[10px] "
+        onClick={() => setModalPartner(true)}
+      >
         Подать на партнёрство
       </button>
     </div>
