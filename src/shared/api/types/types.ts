@@ -122,6 +122,7 @@ export interface ProductProps {
   price: number;
   animal: "dogs" | "cats" | "little" | "birds" | "reptiles";
   category: "food" | "clothes" | "beds" | "toys" | "fillers";
+  tag: "Новинка" | "Эксклюзив" | null;
   isRecommended: boolean;
   rating: number;
   brand: string;

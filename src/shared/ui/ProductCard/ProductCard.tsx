@@ -27,13 +27,24 @@ export const ProductCard = (product: ProductProps) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-between w-[129px] h-[197px] xl:h-[299px] gap-[5px] xl:gap-[10px] xl:w-[210px]">
+    <div className="flex flex-col items-center justify-between w-[129px] h-[197px] xl:h-[299px] gap-[5px] xl:gap-[10px] xl:w-[208px]">
       {product.image && (
-        <div className="flex-grow w-full overflow-hidden relative cursor-pointer">
+        <div
+          className={`flex-grow w-full overflow-hidden relative cursor-pointer ${
+            product.tag === "Новинка" &&
+            "rounded-[13px] border-[3px] border-pink"
+          }  ${
+            product.tag === "Эксклюзив" &&
+            "rounded-[13px] border-[3px] border-secondary"
+          }`}
+        >
           <Link to={`/${product.id}`}>
             <img
               src={product.image}
-              className="w-full h-full object-contain flex justify-end absolute bottom-0"
+              className={`w-full h-full object-contain flex justify-end  ${
+                product.tag !== null &&
+                "bottom-2 h-[100px] !w-[100px]"
+              }`}
             />
           </Link>
           {liked.includes(product.id) ? (
