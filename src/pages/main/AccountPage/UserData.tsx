@@ -3,8 +3,9 @@ import { Edit } from "tabler-icons-react";
 
 interface UserDataProps {
   setModal: (props: boolean) => void;
+  setModalEdit: (props: boolean) => void;
 }
-export const UserData = ({ setModal }: UserDataProps) => {
+export const UserData = ({ setModal, setModalEdit }: UserDataProps) => {
   return (
     <div className="flex flex-col gap-5 items-center">
       <div className="bg-secondary p-4 rounded-[20px]  py-[30px] flex flex-col  justify-center max-w-[700px] xl:px-[50px] xl:py-[40px]">
@@ -32,7 +33,7 @@ export const UserData = ({ setModal }: UserDataProps) => {
             </Typography>
           </div>
 
-          <button>
+          <button onClick={() => setModalEdit(true)}>
             <Typography variant="h4" className="p-2 underline decoration-1">
               Изменить пароль
             </Typography>
