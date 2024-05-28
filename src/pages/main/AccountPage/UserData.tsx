@@ -1,7 +1,10 @@
 import { Button, Typography } from "@/shared/ui";
 import { Edit } from "tabler-icons-react";
 
-export const UserData = () => {
+interface UserDataProps {
+  setModal: (props: boolean) => void;
+}
+export const UserData = ({ setModal }: UserDataProps) => {
   return (
     <div className="flex flex-col gap-5 items-center">
       <div className="bg-secondary p-4 rounded-[20px]  py-[30px] flex flex-col  justify-center max-w-[700px] xl:px-[50px] xl:py-[40px]">
@@ -36,7 +39,10 @@ export const UserData = () => {
           </button>
         </div>
         <div className="flex flex-wrap gap-2 mt-4 justify-center">
-          <Button className="inline-block text-white px-4 py-2 rounded-md">
+          <Button
+            className="inline-block text-white px-4 py-2 rounded-md"
+            onClick={() => setModal(true)}
+          >
             Отследить заказ
           </Button>
         </div>
