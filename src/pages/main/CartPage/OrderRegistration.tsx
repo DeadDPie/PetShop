@@ -10,16 +10,16 @@ export const OrderRegistration = () => {
     .reduce((total, price) => total + price, 0);
 
   return (
-    <div>
+    <div className="w-full flex flex-col md:w-[430px] items-center ">
       <Typography
         variant="h4"
-        className="flex justify-center mb-7 xl:text-[30px]"
+        className="flex justify-center mb-7 xl:text-[32px]"
       >
         Оформление заказа
       </Typography>
-      <div>
-        <form>
-          <div className="mb-4">
+      <div className="w-full">
+        <form className="flex flex-col w-full items-center">
+          <div className="mb-4 w-full">
             <input
               type="text"
               id="name"
@@ -27,7 +27,7 @@ export const OrderRegistration = () => {
               placeholder="Введите ваше имя"
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-4 w-full">
             <input
               type="text"
               id="post"
@@ -35,7 +35,7 @@ export const OrderRegistration = () => {
               placeholder="Введите email"
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-4 w-full">
             <input
               type="tel"
               id="phone"
@@ -43,7 +43,7 @@ export const OrderRegistration = () => {
               placeholder="Введите телефон"
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-4 w-full">
             <select
               id="store"
               className="w-full p-3 border border-grey bg-grey rounded-xl"
@@ -54,7 +54,7 @@ export const OrderRegistration = () => {
               ))}
             </select>
           </div>
-          <div className="mb-6">
+          <div className="mb-6 w-full">
             <select
               id="payment"
               className="w-full p-3 border border-grey bg-grey rounded-xl"
@@ -67,11 +67,14 @@ export const OrderRegistration = () => {
           </div>
           <Typography
             variant="h4"
-            className="flex justify-start mb-7 xl:text-[30px]"
+            className="flex justify-between w-full mb-7 xl:text-[30px] px-[19px]"
           >
-            Итого: {totalPrice}
+            <p>Итого:</p> <p>{totalPrice}₽</p>
           </Typography>
-          <Button type="submit" className="xl:text-2xl   ">
+          <Button
+            type="submit"
+            className="xl:text-2xl py-3 w-full max-w-[238px] md:max-w-none md:py-[21px] max-h-[69px] rounded-[12px] font-normal"
+          >
             Оформить заказ
           </Button>
         </form>

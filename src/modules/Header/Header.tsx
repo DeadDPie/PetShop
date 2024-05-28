@@ -24,6 +24,7 @@ export const Header = () => {
         </Link>
         <input
           className="border-brown max-w-[735px] bg-transparent placeholder-shown:bg-transparent hidden lg:block placeholder-brown font-comfortaa placeholder-shown:text-center max-h-[45px] text-brown text-[22px] border-2 py-[10px] px-6 rounded-[40px] flex-grow"
+          style={{ backgroundColor: "transparent !important" }}
           placeholder="Поиск..."
         />
         <div className="flex gap-[17px] text-brown">

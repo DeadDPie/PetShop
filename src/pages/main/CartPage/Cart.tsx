@@ -5,7 +5,7 @@ import { useCart } from "@/shared/contexts/cart";
 export const Cart = () => {
   const { cart } = useCart();
   return (
-    <div>
+    <div className="w-full max-w-[713px]">
       <Typography
         variant="h4"
         className="flex justify-center mb-7 xl:text-[30px]"

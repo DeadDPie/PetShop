@@ -24,7 +24,7 @@ export const Category = () => {
   const selectedPage = searchParams.get("current");
 
   const { data, isSuccess, isFetching } = useGetProductsQuery({
-    params: { limit: "2", current: selectedPage || "1" },
+    params: { limit: "4", current: selectedPage || "1" },
   });
 
   const handleCategoryClick = (category: string) => {
@@ -138,20 +138,22 @@ export const Category = () => {
                     initialMaxPrice={selectedMaxPrice}
                   />
                 </Modal>
-
-                <div className="grid grid-cols-2 min-[450px]:grid-cols-3 lg:grid-cols-4 gap-x-[35px] gap-y-6 xl:min-w-[945px]">
-                  {filteredProducts?.map((animal) => (
-                    <ProductCard key={animal.id} {...animal} />
-                  ))}
+                <div className="flex flex-col w-full items-center ">
+                  <div className="xl:min-h-[650px] grid grid-cols-2 min-[450px]:grid-cols-3 lg:grid-cols-4 gap-x-[35px] gap-y-6 xl:min-w-[945px]">
+                    {filteredProducts?.map((animal) => (
+                      <ProductCard key={animal.id} {...animal} />
+                    ))}
+                  </div>
+                  <Pagination
+                    count={data!.pagination.count}
+                    limit={data!.pagination.limit}
+                    current={parseInt(selectedPage ?? "1")}
+                    onClick={onPaginationClick}
+                    className="mt-[45px]"
+                  />
                 </div>
               </div>
             </div>
-            <Pagination
-              count={data!.pagination.count}
-              limit={data!.pagination.limit}
-              current={parseInt(selectedPage ?? "1")}
-              onClick={onPaginationClick}
-            />
           </>
         )}
       </div>

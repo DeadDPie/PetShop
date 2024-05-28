@@ -41,6 +41,7 @@ export const PurchaseHystory = () => {
             limit={data!.pagination.limit}
             current={parseInt(selectedPage ?? "1")}
             onClick={onPaginationClick}
+            className="mt-[45px]"
           />
         </>
       )}
