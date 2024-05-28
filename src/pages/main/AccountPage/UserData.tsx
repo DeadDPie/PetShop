@@ -4,15 +4,23 @@ import { Edit } from "tabler-icons-react";
 interface UserDataProps {
   setModal: (props: boolean) => void;
   setModalEdit: (props: boolean) => void;
+  setModalEditUserData: (props: boolean) => void;
 }
-export const UserData = ({ setModal, setModalEdit }: UserDataProps) => {
+export const UserData = ({
+  setModal,
+  setModalEdit,
+  setModalEditUserData,
+}: UserDataProps) => {
   return (
     <div className="flex flex-col gap-5 items-center">
       <div className="bg-secondary p-4 rounded-[20px]  py-[30px] flex flex-col  justify-center max-w-[700px] xl:px-[50px] xl:py-[40px]">
         <div className="flex flex-col items-center max-w-[625px] gap-4 md:gap-5">
           <div className="flex flex-row ">
             <Typography variant="h3">Данные пользователя</Typography>
-            <Edit className="bg-white rounded ml-4" />
+            <Edit
+              className="bg-white rounded ml-4 cursor-pointer"
+              onClick={() => setModalEditUserData(true)}
+            />
           </div>
 
           <div className="w-full text-sm md:text-xl px-3 py-2 bg-white rounded-[6px] mb-1 ">
