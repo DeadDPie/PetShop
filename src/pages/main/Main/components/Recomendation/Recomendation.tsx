@@ -27,7 +27,7 @@ export const Recomendation = () => {
           <Link to="animal">
             <Button
               variant="OUTLINE"
-              className="text-xs rounded-[7px] mt-7  px-6 py-[7px]"
+              className="text-xs rounded-[7px] mt-7 px-6 py-[7px] md:rounded-[12px] md:text-base md:px-9 md:py-[10px]"
             >
               Больше
             </Button>
