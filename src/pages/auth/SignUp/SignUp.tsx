@@ -54,11 +54,17 @@ export const SignUp = () => {
         className="flex flex-col gap-4 md:gap-[30px] w-full items-center"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <Input field="name" error={errors?.name?.message} register={register} />
+        <Input
+          field="name"
+          error={errors?.name?.message}
+          register={register}
+          placeholder="Имя"
+        />
         <Input
           field="email"
           error={errors?.email?.message}
           register={register}
+          placeholder="Адрес электронной почты"
         />
 
         <Input
@@ -66,6 +72,7 @@ export const SignUp = () => {
           field="password"
           error={errors?.password?.message}
           register={register}
+          placeholder="Пароль"
         />
 
         <Input
@@ -73,6 +80,7 @@ export const SignUp = () => {
           field="repeatPassword"
           error={errors?.repeatPassword?.message}
           register={register}
+          placeholder="Подтвердите пароль"
         />
         <div className="w-full flex items-center gap-4 xs:justify-between max-w-[491px] flex-col md:flex-row">
           {/*почему то в мобилке запрос не работает */}

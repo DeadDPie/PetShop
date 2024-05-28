@@ -13,7 +13,7 @@ export const Layout = ({
   return (
     <>
       <div className="min-h-screen h-fit bg-secondary relative md:hidden overflow-hidden">
-        <div className="relative h-full flex flex-col min-h-screen items-center pt-[80px] w-full">
+        <div className="relative h-full flex flex-col min-h-screen items-center pt-[50px] w-full">
           <div className="w-full float-right">
             <img src={paw} className="-rotate-140 float-right " />
           </div>
@@ -28,11 +28,11 @@ export const Layout = ({
           </div>
         </div>
       </div>
-      <div className="hidden md:flex min-h-[797px] relative justify-center pt-[120px] h-fit px-3 lg:px-[90px] pb-[77px] gap-10 xl:gap-[80px]">
+      <div className="hidden md:flex min-h-[797px] relative justify-center pt-[100px] h-fit px-3 lg:px-[90px] pb-[77px] gap-10 xl:gap-[80px]">
         <img src={pawDark} className="size-[100px] xl:size-[140px]" />
         <div className="h-fit min-h-[600px] bg-secondary w-[800px] rounded-[11px] py-[28px] px-[45px] xl:px-[95px]">
           <div className="flex flex-col h-full items-center gap-4">
-            <Typography variant="h3" className="lg:text-[32px]">
+            <Typography variant="h3" className="lg:text-[32px] mt-2">
               {title}
             </Typography>
             {children}
