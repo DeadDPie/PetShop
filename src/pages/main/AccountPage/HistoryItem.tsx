@@ -1,8 +1,12 @@
 // import { Link } from "react-router-dom";
 import { ProductProps } from "@/shared/api/types/types";
+import { Modal } from "@/shared/ui";
 import { Link } from "react-router-dom";
+import { Review } from "./Review";
+import { useState } from "react";
 
 export const HistoryItem = (product: ProductProps) => {
+  const [modalReview, setModalReview] = useState(false);
   return (
     <div className="flex flex-col items-center justify-between gap-[3px] w-[135px] h-[213px] xl:h-[299px]  xl:w-[210px]">
       {product.image && (
@@ -23,9 +27,15 @@ export const HistoryItem = (product: ProductProps) => {
       <p className="text-sm px-[7px] font-medium xl:px-[15px] xl:text-base">
         {product.price}₽
       </p>
-      <button className="bg-white border border-brown px-[8px] py-[1px] rounded-[10px] ">
+      <button
+        className="bg-white border border-brown px-[8px] py-[1px] rounded-[10px] "
+        onClick={() => setModalReview(true)}
+      >
         Оставить отзыв
       </button>
+      <Modal className={modalReview ? "w-full" : "hidden"}>
+        <Review setModalReview={setModalReview} product={product} />
+      </Modal>
     </div>
   );
 };

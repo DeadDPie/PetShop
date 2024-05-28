@@ -12,6 +12,7 @@ export const AccountPage = () => {
   const [modalEdit, setModalEdit] = useState(false);
   const [modalEditUserData, setModalEditUserData] = useState(false);
   const [modalPartner, setModalPartner] = useState(false);
+ 
   return (
     <div className=" flex flex-col xl:flex-row gap-12 pt-[21px] xl:pt-[68px] px-6 pb-[3px] xl:gap-[100px] xl:justify-center mb-[55px]">
       <Modal className={modal ? "w-full" : "hidden"}>
@@ -26,6 +27,7 @@ export const AccountPage = () => {
       <Modal className={modalPartner ? "w-full" : "hidden"}>
         <Partner setModalPartner={setModalPartner} />
       </Modal>
+      
 
       <UserData
         setModal={setModal}
