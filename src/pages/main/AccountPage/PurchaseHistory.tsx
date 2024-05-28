@@ -20,8 +20,8 @@ export const PurchaseHystory = () => {
     });
 
   return (
-    <div>
-      <div className="relative flex flex-col items-center min-w-[310px] lg:min-w-[700px] ">
+    <div className="w-full max-w-[310px] md:max-w-[692px]">
+      <div className="relative flex flex-col items-center min-w-[310px] w-full lg:min-w-[692px]">
         <div className="flex flex-col gap-[18px]">
           <Typography variant="h3" className="text-center mb-4 ">
             История покупок
@@ -31,7 +31,7 @@ export const PurchaseHystory = () => {
       {isFetching && <div>Загрузка...</div>}
       {data && isSuccess && !isFetching && (
         <>
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-[35px] gap-y-6 mb-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-[35px] gap-y-6 mb-6">
             {data.rows.map((product) => (
               <HistoryItem {...product} />
             ))}

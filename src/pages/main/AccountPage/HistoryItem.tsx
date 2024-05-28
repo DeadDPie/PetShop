@@ -8,7 +8,7 @@ import { useState } from "react";
 export const HistoryItem = (product: ProductProps) => {
   const [modalReview, setModalReview] = useState(false);
   return (
-    <div className="flex flex-col items-center justify-between gap-[3px] w-[135px] h-[213px] xl:h-[299px]  xl:w-[210px]">
+    <div className="flex flex-col items-center justify-between gap-[3px] w-[135px] h-[213px] md:h-[299px] md:w-[210px]">
       {product.image && (
         <div className="flex-grow w-full overflow-hidden relative cursor-pointer">
           <Link to={`/${product.id}`}>
@@ -19,12 +19,12 @@ export const HistoryItem = (product: ProductProps) => {
           </Link>
         </div>
       )}
-      <p className="text-sm text-center xl:text-lg max-w-[168px]">
+      <p className="text-sm text-center md:text-lg max-w-[168px]">
         {product.title}
       </p>
-      <p className="text-xs xl:text-base ">04.03.2024</p>
+      <p className="text-xs md:text-base ">04.03.2024</p>
 
-      <p className="text-sm px-[7px] font-medium xl:px-[15px] xl:text-base">
+      <p className="text-sm px-[7px] font-medium md:px-[15px] md:text-base">
         {product.price}₽
       </p>
       <button
