@@ -1,6 +1,7 @@
 import { Button, Typography } from "@/shared/ui";
 
 import background from "@/assets/images/overview/background.png";
+import { Link } from "react-router-dom";
 
 export const Overview = () => (
   <div className="relative sm:h-[638px]">
@@ -21,9 +22,11 @@ export const Overview = () => (
             Скидки до 60%
           </p>
         </div>
-        <Button className="z-20 hidden sm:block absolute left-[200px] lg:left-[400px] bottom-[100px] shadow-lg">
-          К покупкам
-        </Button>
+        <Link to="animal">
+          <Button className="z-20 hidden sm:block absolute left-[200px] lg:left-[400px] bottom-[100px] shadow-lg">
+            К покупкам
+          </Button>
+        </Link>
       </div>
     </div>
   </div>
