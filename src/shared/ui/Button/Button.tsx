@@ -13,7 +13,8 @@ export const Button = ({
   return (
     <button
       className={`${
-        variant === "FILL" && "bg-primary text-white hover:bg-primaryDark"
+        variant === "FILL" &&
+        "bg-primary text-white hover:bg-primaryDark rounded-[12px] "
       } ${
         variant === "OUTLINE" &&
         "bg-white border border-primary text-primary hover:bg-primary hover:text-white"

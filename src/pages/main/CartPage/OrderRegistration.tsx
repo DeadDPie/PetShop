@@ -19,47 +19,75 @@ export const OrderRegistration = () => {
       </Typography>
       <div className="w-full">
         <form className="flex flex-col w-full items-center">
-          <div className="mb-4 w-full">
+          <div className="w-full">
+            <Typography
+              variant="h4"
+              className="font-bold xl:text-[18px] flex justify-start mt-5"
+            >
+              Имя
+            </Typography>
             <input
               type="text"
               id="name"
-              className="w-full p-3 border border-grey bg-grey rounded-xl"
-              placeholder="Введите ваше имя"
+              className="w-full p-2 border border-beige bg-beige rounded-xl"
             />
           </div>
-          <div className="mb-4 w-full">
+          <div className="w-full">
+            <Typography
+              variant="h4"
+              className="font-bold xl:text-[18px] flex justify-start mt-5"
+            >
+              Почта
+            </Typography>
             <input
               type="text"
-              id="post"
-              className="w-full p-3 border border-grey bg-grey rounded-xl"
-              placeholder="Введите email"
+              id="name"
+              className="w-full p-2 border border-beige bg-beige rounded-xl"
             />
           </div>
-          <div className="mb-4 w-full">
+
+          <div className="w-full">
+            <Typography
+              variant="h4"
+              className="font-bold xl:text-[18px] flex justify-start mt-5"
+            >
+              Телефон
+            </Typography>
             <input
-              type="tel"
-              id="phone"
-              className="w-full p-3 border border-grey bg-grey rounded-xl"
-              placeholder="Введите телефон"
+              type="text"
+              id="name"
+              className="w-full p-2 border border-beige bg-beige rounded-xl"
             />
           </div>
-          <div className="mb-4 w-full">
+          <div className="w-full">
+            <Typography
+              variant="h4"
+              className="font-bold xl:text-[18px] flex justify-start mt-5"
+            >
+              Выберите магазин
+            </Typography>
             <select
               id="store"
-              className="w-full p-3 border border-grey bg-grey rounded-xl"
+              className="w-full p-3 border border-beige bg-beige rounded-xl"
             >
-              <option value="">Выберите магазин</option>
+              <option value=""></option>
               {ADDRESSES.map((address) => (
                 <option value={address}>{address}</option>
               ))}
             </select>
           </div>
-          <div className="mb-6 w-full">
+          <div className="mb-4 w-full">
+            <Typography
+              variant="h4"
+              className="font-bold xl:text-[18px] flex justify-start mt-5"
+            >
+              Выберите способ оплаты
+            </Typography>
             <select
               id="payment"
-              className="w-full p-3 border border-grey bg-grey rounded-xl"
+              className="w-full p-3 border border-beige bg-beige rounded-xl"
             >
-              <option value="">Выберите способ оплаты</option>
+              <option value=""></option>
               <option value="card">Карта</option>
               <option value="cash">Наличные</option>
               <option value="online">Онлайн оплата</option>
@@ -71,12 +99,14 @@ export const OrderRegistration = () => {
           >
             <p>Итого:</p> <p>{totalPrice}₽</p>
           </Typography>
-          <Button
-            type="submit"
-            className="xl:text-2xl py-3 w-full max-w-[238px] md:max-w-none md:py-[21px] max-h-[69px] rounded-[12px] font-normal"
-          >
-            Оформить заказ
-          </Button>
+          <div className=" w-full ">
+            <Button
+              type="submit"
+              className="xl:text-2xl py-3 w-full  md:max-w-none md:py-[21px] max-h-[69px] rounded-[12px] font-normal"
+            >
+              Оформить заказ
+            </Button>
+          </div>
         </form>
       </div>
     </div>

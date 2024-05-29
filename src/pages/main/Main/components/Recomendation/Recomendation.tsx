@@ -13,7 +13,7 @@ export const Recomendation = () => {
   return (
     <>
       {data && isSuccess && (
-        <div className="relative flex flex-col items-center pt-[21px] xl:pt-[68px] px-6 pb-[3px] xl:gap-[25px] gap-[8px] mb-[55px]">
+        <div className="relative w-full flex flex-col items-center pt-[21px] xl:pt-[68px] px-6 pb-[3px] xl:gap-[25px] gap-[8px] mb-[55px]">
           <Typography variant="h4" className="xl:text-[32px]">
             Рекомендуем
           </Typography>
@@ -24,14 +24,16 @@ export const Recomendation = () => {
                 <ProductCard {...product} />
               ))}
           </div>
-          <Link to="animal">
-            <Button
-              variant="OUTLINE"
-              className="text-xs rounded-[7px] mt-7 px-6 py-[7px] md:rounded-[12px] md:text-base md:px-9 md:py-[10px]"
-            >
-              Больше
-            </Button>
-          </Link>
+          <div>
+            <Link to="animal">
+              <Button
+                variant="OUTLINE"
+                className="text-xs text-center w-full rounded-[7px] mt-7 px-[100px] xl:px-[50px] py-[7px] md:rounded-[12px] md:text-base md:px-9 md:py-[10px]"
+              >
+                Больше
+              </Button>
+            </Link>
+          </div>
         </div>
       )}
     </>

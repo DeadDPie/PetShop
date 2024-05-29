@@ -2,6 +2,7 @@ import { ProductProps } from "@/shared/api/types/types";
 
 const cora = "http://localhost:31299/static/images/products/cora.png";
 const pusya = "http://localhost:31299/static/images/products/pusya.png";
+const filler = "http://localhost:31299/static/images/products/filler.png";
 export const PRODUCTS: ProductProps[] = [
   {
     id: 11,
@@ -318,22 +319,20 @@ export const PRODUCTS: ProductProps[] = [
   },
   {
     id: 111,
-    category: "food",
+    category: "fillers",
     animal: "dogs",
     isRecommended: true,
-    image: cora,
-    title: "Клетчатка для собак 'Кора'",
+    image: filler,
+    title: "Лоток для собак 'Кора'",
     tag: null,
     price: 267,
     rating: 4,
     brand: "SCora Int",
     for: "Взрослые собаки",
     class: "Премиум",
-    type: "Сухой корм",
-    description:
-      "SIRIUS — сухой корм премиум-класса для полноценного ежедневного рациона стерилизованных кошек. Высокое содержание мясных ингредиентов обеспечивает оптимальный уровень белка и укрепляет мышцы. Пониженное содержание жиров для контроля веса. Баланс витаминов и комплекса пробиотиков 4-го поколения PROSTOR+ нормализует пищеварение и укрепляет иммунитет. Омега 3 и Омега 6 способствуют поддержанию здоровья сердца, мозга, нервной системы, здоровья кожи и красоты шерсти. Корм способствует профилактике мочекаменной болезни.",
-    structure:
-      "Дегидрированное мясо (курица 18%, индейка 12%), кукуруза, пшеница, жир куриный, гидролизованные мясные белки, растительные волокна (источник клетчатки), кукурузный глютен, дрожжи пивные, жир лососевый 1%, пробиотический комплекс ProStor+ (Bacillus subtillis, Bacilluslicheniformis, автолизат пивных дрожжей, пектиновый комплекс, эхинацея, ромашка), клюква сушеная, сельдерей сушеный, Юкка Шидигера, метионин, таурин. Корм не содержит искусственных красителей, ароматизаторов, ГМИ.",
+    type: "Лоток",
+    description: "SIRIUS — Лоток для собак",
+    structure: "Пластик",
     reviews: [{ rating: 5, name: "Николай", review: "сойдёт" }],
   },
 ];

@@ -40,13 +40,13 @@ export const ChangePassword = ({ setModalEdit }: ChangePasswordProps) => {
             className="w-full p-2 border border-beige bg-beige rounded-xl"
           />
         </div>
-        <div className="flex flex-row gap-5 justify-center xl:justify-around">
+        <div className="flex flex-col xl:flex-row min-w-[300px] gap-5 justify-center xl:justify-around">
           <Button type="submit" className="px-2 py-1">
             Изменить
           </Button>
           <Button
             variant="OUTLINE"
-            className="px-2 py-1"
+            className="px-2 py-1 "
             onClick={() => setModalEdit(false)}
           >
             Отмена

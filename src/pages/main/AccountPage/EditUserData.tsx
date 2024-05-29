@@ -53,7 +53,7 @@ export const EditUserData = ({ setModalEditUserData }: EditUserDataProps) => {
           />
         </div>
 
-        <div className="flex flex-row gap-5 justify-center xl:justify-around">
+        <div className="flex flex-col xl:flex-row gap-5 justify-center xl:justify-around">
           <Button type="submit" className="px-2 py-1">
             Изменить
           </Button>

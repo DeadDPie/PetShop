@@ -1,5 +1,6 @@
 import { ANIMALS } from "@/assets/constants/animals";
 import { CATEGORIES } from "@/assets/constants/categories";
+// import { CATEGORIES } from "@/assets/constants/categories";
 import { Link } from "react-router-dom";
 
 export const Categories = () => (
@@ -10,8 +11,8 @@ export const Categories = () => (
         <div className="flex flex-col gap-3 text-base">
           {CATEGORIES.map((category) => (
             <Link
-              to={category.route}
-              key={category.title}
+              to={`animal?type=${category.route}`}
+              key={category.route}
               className="hover:font-bold"
             >
               {category.title}
@@ -21,8 +22,8 @@ export const Categories = () => (
         <div className="flex flex-col gap-3 text-base">
           {ANIMALS.map((animal) => (
             <Link
-              to={animal.route}
-              key={animal.title}
+              to={`animal?type=${animal.route}`}
+              key={animal.route}
               className="hover:font-bold"
             >
               {animal.title}
@@ -33,3 +34,5 @@ export const Categories = () => (
     </div>
   </div>
 );
+/*{/* to={animal.route}
+              key={animal.title} */

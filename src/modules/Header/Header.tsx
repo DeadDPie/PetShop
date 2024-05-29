@@ -8,7 +8,7 @@ export const Header = () => {
   const { cart } = useCart();
 
   return (
-    <div className="flex w-full justify-center z-20 shadow-md">
+    <div className="flex w-full justify-center z-20 shadow-md bg-white">
       <div className="w-full flex  gap-[55px] max-w-[1440px] bg-none justify-between items-center lg:px-[60px] px-[15px] py-[10px] ">
         <Link
           to="/"
@@ -23,8 +23,8 @@ export const Header = () => {
           </span>
         </Link>
         <input
-          className="border-brown max-w-[735px] bg-transparent placeholder-shown:bg-transparent hidden lg:block placeholder-brown font-comfortaa placeholder-shown:text-center max-h-[45px] text-brown text-[22px] border-2 py-[10px] px-6 rounded-[40px] flex-grow"
-          style={{ backgroundColor: "transparent !important" }}
+          className="border-brown max-w-[735px] bg-white placeholder-shown:bg-white hidden lg:block placeholder-brown font-comfortaa placeholder-shown:text-center max-h-[45px] text-brown text-[22px] border-2 py-[10px] px-6 rounded-[40px] flex-grow"
+          style={{ backgroundColor: "white !important" }}
           placeholder="Поиск..."
         />
         <div className="flex gap-[17px] text-brown">

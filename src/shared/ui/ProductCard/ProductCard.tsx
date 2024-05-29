@@ -72,21 +72,21 @@ export const ProductCard = (product: ProductProps) => {
         </div>
       )}
       <p className="text-xs xl:text-base max-w-[168px]">{product.title}</p>
-      <div className="flex w-full items-center justify-between">
-        <p className="text-sm px-[7px] xl:px-[15px] xl:text-base">
+      <div className="flex flex-col xl:flex-row w-full items-center justify-between">
+        <p className="text-sm mb-1 px-[7px] xl:px-[15px] xl:text-base">
           {product.price}₽
         </p>
         {cart.find((cart) => cart.id === product.id) ? (
           <Button
             variant="OUTLINE"
-            className="text-xs px-[7px] py-[7px] rounded-[7px] xl:rounded-[12px] xl:px-[10px] xl:py-[10px] xl:text-base"
+            className="text-xs  w-full px-[7px] py-[7px] rounded-[7px] xl:rounded-[12px] xl:px-[10px] xl:py-[10px] xl:text-base"
             onClick={toggleCart}
           >
             В корзине
           </Button>
         ) : (
           <Button
-            className="text-xs px-[7px] py-[7px] rounded-[7px] xl:rounded-[12px] xl:px-[10px] xl:py-[10px] xl:text-base"
+            className="text-xs w-full px-[7px] py-[7px] rounded-[7px] xl:rounded-[12px] xl:px-[10px] xl:py-[10px] xl:text-base"
             onClick={toggleCart}
           >
             В корзину

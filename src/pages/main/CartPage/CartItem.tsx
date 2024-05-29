@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { X } from "tabler-icons-react";
 
 import { Button } from "@/shared/ui";
 import { CartProps, useCart } from "@/shared/contexts/cart";
@@ -61,13 +62,10 @@ export const CartItem = (product: ProductProps) => {
         </div>
       </div>
       <div className="flex flex-col place-content-between items-center pb-3">
-        <Button
-          variant="OUTLINE"
-          className="text-xs text-[black] border-greyDark rounded-[10px] px-1 md:px-2 py-[4px] md:text-base "
-          onClick={() => changCart(0)}
-        >
-          Удалить
-        </Button>
+        <button>
+          <X></X>
+        </button>
+        
         <div className="felx justify-center text-base font-medium md:text-2xl ">
           <p>{product.price}₽</p>
         </div>
@@ -75,3 +73,10 @@ export const CartItem = (product: ProductProps) => {
     </div>
   );
 };
+/*<Button
+          variant="OUTLINE"
+          className="text-xs text-[black] border-greyDark rounded-[10px] px-1 md:px-2 py-[4px] md:text-base "
+          onClick={() => changCart(0)}
+        >
+          Удалить
+        </Button>*/

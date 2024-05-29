@@ -135,6 +135,12 @@ export const Filter = ({
       >
         Отфильтровать
       </Button>
+      <Button
+        variant="OUTLINE"
+        className="my-1 h-[40px] text-l px-[7px] py-[7px] rounded-[7px] xl:rounded-[12px] xl:px-[10px] xl:py-[10px] xl:text-base"
+      >
+        Сбросить
+      </Button>
     </div>
   );
 };

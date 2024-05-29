@@ -24,7 +24,7 @@ export const Category = () => {
   const selectedPage = searchParams.get("current");
 
   const { data, isSuccess, isFetching } = useGetProductsQuery({
-    params: { limit: "40", current: selectedPage || "1" },
+    params: { limit: "12", current: selectedPage || "1" },
   });
 
   const handleCategoryClick = (category: string) => {
@@ -88,7 +88,7 @@ export const Category = () => {
 
   return (
     <>
-      <div className="relative flex flex-col items-center pt-[21px] xl:pt-[68px] px-6 pb-[3px] xl:gap-[25px] gap-[8px] mb-[55px]">
+      <div className="relative flex flex-col items-center pt-[21px] xl:pt-[68px] px-6 pb-[3px] xl:gap-[25px] gap-[8px] mb-[55px] cursor-pointer">
         <Typography variant="h4" className="xl:text-[32px]">
           Категории
         </Typography>

@@ -51,7 +51,7 @@ export const UserData = ({
         </div>
         <div className="flex flex-wrap gap-2 mt-4 justify-center">
           <Button
-            className="inline-block text-white px-4 py-2 rounded-md"
+            className="inline-block w-full text-white px-4 py-2 rounded-md"
             onClick={() => setModal(true)}
           >
             Отследить заказ
@@ -59,10 +59,12 @@ export const UserData = ({
         </div>
       </div>
       <button
-        className="bg-white border border-brown px-2 py-1 rounded-[10px] "
+        className="bg-white border border-brown px-5 py-3 rounded-[10px] "
         onClick={() => setModalPartner(true)}
       >
-        Подать на партнёрство
+        <Typography variant="h4" className="">
+          Подать на партнёрство
+        </Typography>
       </button>
     </div>
   );
