@@ -11,7 +11,7 @@ export const Categories = () => (
         <div className="flex flex-col gap-3 text-base">
           {CATEGORIES.map((category) => (
             <Link
-              to={`animal?type=${category.route}`}
+              to={`animal?category=${category.route}`}
               key={category.route}
               className="hover:font-bold"
             >

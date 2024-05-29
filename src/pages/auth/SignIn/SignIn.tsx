@@ -66,7 +66,7 @@ export const SignIn = () => {
           {/*почему то в мобилке запрос не работает */}
           <Button
             type="submit"
-            className="w-full xs:w-fit text-base rounded-[6px] py-[11px] md:rounded-[12px]  md:px-[5px] md:py-[19px] md:text-xl"
+            className="w-full xs:w-fit text-base py-[11px] md:rounded-[12px]  md:px-[5px] md:py-[19px] md:text-xl"
           >
             Войти в аккаунт
           </Button>

@@ -43,17 +43,17 @@ export const CartItem = (product: ProductProps) => {
           </div>
           <div className="h-[29px] md:h-[40px] mb-1">
             <button
-              className="text-sm px-[14px] h-full py-1 md:px-[20px] md:text-md bg-grey border-2 border-grey rounded-l-lg hover:bg-greyDark"
+              className="text-sm px-[14px] h-full py-1 md:px-[20px] md:text-xl bg-grey border-2 border-grey rounded-l-[12px] hover:bg-greyDark"
               onClick={() => changCart(-1)}
               disabled={cartItem?.amount === 1}
             >
               -
             </button>
-            <button className="text-sm px-[14px] h-full py-1 md:px-[20px] md:text-md bg-white border-2 border-grey border-l border-r hover:bg-greyDark">
+            <button className="text-sm px-[14px] h-full py-1 md:px-[20px] md:text-xl bg-white border-2 border-grey border-l border-r hover:bg-greyDark">
               {cartItem?.amount}
             </button>
             <button
-              className="text-sm px-[14px] py-1 h-full md:px-[20px] md:text-md bg-grey border-2 border-grey rounded-r-lg hover:bg-greyDark"
+              className="text-sm px-[14px] py-1 h-full md:px-[20px] md:text-xl bg-grey border-2 border-grey rounded-r-[12px] hover:bg-greyDark"
               onClick={() => changCart(1)}
             >
               +
@@ -65,7 +65,7 @@ export const CartItem = (product: ProductProps) => {
         <button>
           <X></X>
         </button>
-        
+
         <div className="felx justify-center text-base font-medium md:text-2xl ">
           <p>{product.price}₽</p>
         </div>

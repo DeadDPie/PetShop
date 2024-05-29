@@ -88,8 +88,8 @@ export const OrderRegistration = () => {
               className="w-full p-3 border border-beige bg-beige rounded-xl"
             >
               <option value=""></option>
-              <option value="card">Карта</option>
-              <option value="cash">Наличные</option>
+              <option value="card">Картой при получении</option>
+              <option value="cash">Наличными при получении</option>
               <option value="online">Онлайн оплата</option>
             </select>
           </div>

@@ -28,7 +28,7 @@ export const HistoryItem = (product: ProductProps) => {
         {product.price}₽
       </p>
       <button
-        className="bg-white border border-brown px-[8px] py-[1px] rounded-[10px] "
+        className="bg-white border border-brown px-[8px] py-[1px] rounded-[12px] "
         onClick={() => setModalReview(true)}
       >
         Оставить отзыв

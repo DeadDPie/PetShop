@@ -91,7 +91,7 @@ export const Pagination = ({
             <Button
               variant="OUTLINE"
               disabled={current <= 1}
-              className="size-9 px-[2px] flex justify-center items-center py-[2px] rounded-[5px]"
+              className="size-9 px-[2px] flex justify-center items-center py-[2px] rounded-[12px]"
               onClick={() => onClick(current - 1)}
             >
               <ArrowLeft className="size-5" />
@@ -103,7 +103,7 @@ export const Pagination = ({
                   <Button
                     key={page}
                     variant={current === page ? "FILL" : "OUTLINE"}
-                    className={`size-9 font-xs flex justify-center items-center px-[2px] py-[2px] rounded-[5px] border font-normal ${
+                    className={`size-9 font-xs flex justify-center items-center px-[2px] py-[2px] rounded-[12px] border font-normal ${
                       current === page ? "border-primary" : "border-grey"
                     }`}
                     onClick={() => onClick(page)}
@@ -117,7 +117,7 @@ export const Pagination = ({
             <Button
               variant="OUTLINE"
               disabled={current + 1 >= getPageCount(limit, count)}
-              className="size-9 px-[2px] flex justify-center items-center py-[2px] rounded-[5px]"
+              className="size-9 px-[2px] flex justify-center items-center py-[2px] rounded-[12px]"
               onClick={() => onClick(current + 1)}
             >
               <ArrowRight className="size-5" />

@@ -60,8 +60,7 @@ export const Partner = ({ setModalPartner }: PartnerProps) => {
           >
             Кратко сообщите о вашем предложении
           </Typography>
-          <input
-            type="text"
+          <textarea
             id="post"
             className="w-full p-2 py-10 border border-beige bg-beige rounded-xl"
           />

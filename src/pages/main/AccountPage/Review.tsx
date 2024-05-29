@@ -55,17 +55,19 @@ export const Review = ({ setModalReview, product }: ReviewProps) => {
                   />
                 ))}
             </div>
-            <input
-              type="text"
+            <textarea
               id="post"
-              className="min-w-[200px] w-full my-1 min-h-[200px] p-2 border border-beige bg-beige rounded-xl placeholder:text-center "
+              className="min-w-[200px] w-full my-1 min-h-[200px] p-2 border border-beige bg-beige rounded-[12px] placeholder:text-center "
               placeholder="Здесь можно оставить отзыв"
             />
           </div>
         </div>
 
         <div className="flex flex-row gap-5 justify-between xl:justify-around mt-4">
-          <Button type="submit" className="px-1 py-[1px] xl:px-5 xl:py-3">
+          <Button
+            type="submit"
+            className="px-1 py-[1px] xl:px-5 xl:py-3 rounded-[12px]"
+          >
             Оставить отзыв
           </Button>
           <Button

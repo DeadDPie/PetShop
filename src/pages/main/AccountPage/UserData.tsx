@@ -51,7 +51,7 @@ export const UserData = ({
         </div>
         <div className="flex flex-wrap gap-2 mt-4 justify-center">
           <Button
-            className="inline-block w-full text-white px-4 py-2 rounded-md"
+            className="inline-block w-full  text-white px-4 py-2 rounded-[12px]"
             onClick={() => setModal(true)}
           >
             Отследить заказ

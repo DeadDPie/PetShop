@@ -79,14 +79,14 @@ export const ProductCard = (product: ProductProps) => {
         {cart.find((cart) => cart.id === product.id) ? (
           <Button
             variant="OUTLINE"
-            className="text-xs  w-full px-[7px] py-[7px] rounded-[7px] xl:rounded-[12px] xl:px-[10px] xl:py-[10px] xl:text-base"
+            className="text-xs  w-full px-[7px] py-[7px] rounded-[12px] xl:rounded-[12px] xl:px-[10px] xl:py-[10px] xl:text-base"
             onClick={toggleCart}
           >
             В корзине
           </Button>
         ) : (
           <Button
-            className="text-xs w-full px-[7px] py-[7px] rounded-[7px] xl:rounded-[12px] xl:px-[10px] xl:py-[10px] xl:text-base"
+            className="text-xs w-full px-[7px] py-[7px] rounded-[12px] xl:rounded-[12px] xl:px-[10px] xl:py-[10px] xl:text-base"
             onClick={toggleCart}
           >
             В корзину
