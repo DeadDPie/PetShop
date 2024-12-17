@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useStoreAddresses } from "@shared/api/hooks/useStoreAddresses";
 import { Button } from "@/shared/ui";
 import { Trash } from "tabler-icons-react";
-import { useAddStoreAddress } from "../../hooks/useAddStoreAddress";
-import { useDeleteStoreAddress } from "../../hooks/useDeleteStoreAddress";
+import { useAddStoreAddress } from "../../hooks/StoreAddress/useAddStoreAddress";
+import { useDeleteStoreAddress } from "../../hooks/StoreAddress/useDeleteStoreAddress";
 
 export const StoreAddressesAdmin: React.FC = () => {
 	const { data: storeAddresses, isLoading, isError } = useStoreAddresses();
@@ -44,7 +44,7 @@ export const StoreAddressesAdmin: React.FC = () => {
 	if (isError) return <p>Error loading addresses.</p>;
 
 	return (
-		<div className="p-4 max-w-xs">
+		<div className=" border rounded p-4 m-2 max-w-xs">
 			<h1 className="text-2xl font-bold mb-4">Управление адресами магазинов</h1>
 
 			<div className="mb-6">
@@ -73,7 +73,7 @@ export const StoreAddressesAdmin: React.FC = () => {
 								<span>{address.address}</span>
 								<Button
 									onClick={() => handleDelete(address.store_adress_id)}
-									className="bg-red-500"
+									className="bg-red-400"
 								>
 									<Trash />
 								</Button>
