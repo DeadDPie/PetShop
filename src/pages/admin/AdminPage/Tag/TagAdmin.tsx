@@ -50,7 +50,7 @@ export const TagAdmin: React.FC = () => {
 					className="border rounded p-2 w-full mb-2"
 					value={newTagName}
 					onChange={(e) => setNewTagName(e.target.value)}
-					placeholder="Введите название бренда"
+					placeholder="Введите название тэга"
 				/>
 				<Button onClick={handleCreate}>Добавить</Button>
 			</div>

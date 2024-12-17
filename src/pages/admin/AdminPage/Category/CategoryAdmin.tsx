@@ -53,7 +53,7 @@ export const CategoryAdmin: React.FC = () => {
 					className="border rounded p-2 w-full mb-2"
 					value={newCategoryName}
 					onChange={(e) => setNewCategoryName(e.target.value)}
-					placeholder="Введите название бренда"
+					placeholder="Введите название категории"
 				/>
 				<Button onClick={handleCreate}>Добавить</Button>
 			</div>
