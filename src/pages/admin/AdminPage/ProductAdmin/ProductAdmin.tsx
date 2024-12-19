@@ -3,6 +3,7 @@ import { Button } from "@/shared/ui";
 import { Edit, Trash } from "tabler-icons-react";
 import { useGetProductsQuery } from "../../hooks/useGetProductsQuery";
 import { ProductCardManage } from "./ProductCardManage";
+import axiosInstance from "@/shared/api/axiosInstance";
 
 // Интерфейс для типов данных о продуктах
 interface Product {
@@ -33,7 +34,20 @@ export const ProductAdmin: React.FC = () => {
 			direction === "next" ? prev + 1 : Math.max(prev - 1, 1)
 		);
 	};
+
+	// Обработчик удаления товара
+	const handleDeleteProduct = async (productId: number) => {
+		try {
+			await axiosInstance.delete(`/product/${productId}`);
+			alert("Товар успешно удалён.");
+		} catch (error) {
+			console.error("Ошибка при удалении товара:", error);
+			alert("Не удалось удалить товар.");
+		}
+	};
+
 	data?.rows.map((product: any) => console.log(product));
+
 	return (
 		<div className="border rounded m-2 p-4">
 			<h1 className="text-2xl font-bold mb-4">Управление товарами</h1>
@@ -45,33 +59,24 @@ export const ProductAdmin: React.FC = () => {
 			{/* Отображение товаров */}
 			{isSuccess && data && data.rows && data.rows.length > 0 ? (
 				<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-					{/* {data.rows.map((product: Product) => (
+					{data?.rows.map((product: any) => (
 						<div
 							key={product.id}
 							className="border rounded-lg p-4 flex flex-col justify-between"
 						>
-							<ProductCardManage
-								id={product.id}
-								title={product.title}
-								description={product.description}
-								price={product.price}
-								rating={product.rating}
-								tag={product.tag}
-								image={product.image}
-							/>
+							<ProductCardManage product={product} />
 							<div className="flex justify-end mt-2 space-x-2">
 								<Button variant="OUTLINE">
 									<Edit size={18} />
 								</Button>
-								<Button variant="OUTLINE" color="red">
+								<Button
+									variant="OUTLINE"
+									color="red"
+									onClick={() => handleDeleteProduct(product.id)}
+								>
 									<Trash size={18} />
 								</Button>
 							</div>
-						</div>
-					))} */}
-					{data?.rows.map((product: any) => (
-						<div key={product.id}>
-							<ProductCardManage product={product} />
 						</div>
 					))}
 				</div>
@@ -89,13 +94,13 @@ export const ProductAdmin: React.FC = () => {
 					Назад
 				</Button>
 				<span>Страница: {currentPage}</span>
-				{/* <Button
+				<Button
 					variant="OUTLINE"
 					onClick={() => handlePageChange("next")}
 					disabled={data?.rows?.length < limit}
 				>
 					Вперед
-				</Button> */}
+				</Button>
 			</div>
 		</div>
 	);

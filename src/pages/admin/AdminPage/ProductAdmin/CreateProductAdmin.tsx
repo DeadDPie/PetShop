@@ -97,7 +97,7 @@ export const CreateProductAdmin: React.FC = () => {
 					<label className=" m-2">Description:</label>
 					<br />
 					<textarea
-						className="border rounded "
+						className="border rounded  m-2"
 						name="description"
 						value={formData.description}
 						onChange={handleChange}
