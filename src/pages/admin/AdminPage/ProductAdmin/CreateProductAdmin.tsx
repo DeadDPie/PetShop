@@ -28,6 +28,8 @@ export const CreateProductAdmin: React.FC = () => {
 		image: null,
 	});
 
+	const [fileData, setFileData] = useState<File | null>(null);
+
 	const handleChange = (
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
 	) => {
@@ -41,12 +43,36 @@ export const CreateProductAdmin: React.FC = () => {
 		});
 	};
 
+	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		if (e.target.files && e.target.files.length > 0) {
+			setFileData(e.target.files[0]);
+		}
+	};
+
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 		try {
+			// Отправка данных продукта
 			const response = await axiosInstance.post("/product", formData);
-			// Обработка успешного ответа
-			console.log(response.data);
+			console.log("Продукт создан:", response.data);
+
+			if (fileData) {
+				// Подготовка данных для загрузки файла
+				const formData = new FormData();
+				formData.append("image", fileData);
+
+				// Отправка файла
+				const imageResponse = await axiosInstance.patch(
+					`/product/${response.data.product_id}/image`,
+					formData,
+					{
+						headers: {
+							"Content-Type": "multipart/form-data",
+						},
+					}
+				);
+				console.log("Файл загружен:", imageResponse.data);
+			}
 		} catch (error) {
 			console.error("Ошибка при создании товара:", error);
 		}
@@ -149,6 +175,17 @@ export const CreateProductAdmin: React.FC = () => {
 						value={formData.tagId}
 						onChange={handleChange}
 						required
+					/>
+				</div>
+
+				<div>
+					<label className=" m-2">Изображение:</label>
+					<br />
+					<input
+						className="border rounded m-2"
+						type="file"
+						accept="image/*"
+						onChange={handleFileChange}
 					/>
 				</div>
 

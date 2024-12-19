@@ -17,7 +17,7 @@ interface Product {
 
 export const ProductAdmin: React.FC = () => {
 	const [currentPage, setCurrentPage] = useState(1);
-	const limit = 5;
+	const limit = 10;
 
 	// Получаем данные о продуктах
 	const { data, isSuccess, isLoading, isError } = useGetProductsQuery({
