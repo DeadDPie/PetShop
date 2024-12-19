@@ -12,7 +12,7 @@ interface Product {
 	tagId: number;
 	image: string | null;
 }
-
+const SERVER_URL = "http://localhost:3000"; //
 export const ProductCardManage: React.FC<{ product: Product }> = ({
 	product,
 }) => {
@@ -21,7 +21,7 @@ export const ProductCardManage: React.FC<{ product: Product }> = ({
 			<h2 className="text-xl font-semibold mb-2">{product.title}</h2>
 			{product.image ? (
 				<img
-					src={product.image}
+					src={`${SERVER_URL}${product.image}`} // Добавляем URL сервера
 					alt={product.title}
 					className="w-full h-48 object-cover rounded-md mb-2"
 				/>
