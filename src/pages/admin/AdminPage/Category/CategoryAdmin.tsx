@@ -80,7 +80,7 @@ export const CategoryAdmin: React.FC = () => {
 										className="border p-2 rounded"
 									/>
 								) : (
-									<span>{Category.name}</span>
+									<span>{`id: ${Category.category_id}  ${Category.name}`}</span>
 								)}
 
 								<div className="flex space-x-2">

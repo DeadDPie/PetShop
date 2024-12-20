@@ -74,7 +74,7 @@ export const TagAdmin: React.FC = () => {
 										className="border p-2 rounded"
 									/>
 								) : (
-									<span>{tag.name}</span>
+									<span> {`id: ${tag.tag_id}  ${tag.name}`}</span>
 								)}
 
 								<div className="flex space-x-2">

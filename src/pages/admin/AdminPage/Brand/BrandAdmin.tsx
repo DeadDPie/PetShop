@@ -74,7 +74,7 @@ export const BrandAdmin: React.FC = () => {
 										className="border p-2 rounded"
 									/>
 								) : (
-									<span>{brand.name}</span>
+									<span> {`id: ${brand.brand_id}  ${brand.name}`}</span>
 								)}
 
 								<div className="flex space-x-2">

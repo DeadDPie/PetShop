@@ -83,7 +83,9 @@ export const AnimalTypeAdmin: React.FC = () => {
 											className="border p-2 rounded"
 										/>
 									) : (
-										<span>{AnimalType.name}</span>
+										<span>
+											{`id: ${AnimalType.animal_type_id}  ${AnimalType.name}`}
+										</span>
 									)}
 
 									<div className="flex space-x-2">
