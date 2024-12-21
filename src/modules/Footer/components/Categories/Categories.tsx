@@ -11,7 +11,7 @@ export const Categories = () => {
 	return (
 		<div>
 			<div className="flex flex-col gap-3">
-				<div className="text-xl">Категории товаров</div>
+				<div className="text-xl">Категории товаров и виды животных</div>
 				<div className="flex flex-col sm:flex-row gap-3 sm:gap-[77px]">
 					<div className="flex flex-col gap-3 text-base">
 						{/* {CATEGORIES.map((category) => (
