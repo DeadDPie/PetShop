@@ -4,6 +4,7 @@ import { Edit, Trash } from "tabler-icons-react";
 import { useGetProductsQuery } from "../../hooks/useGetProductsQuery";
 import { ProductCardManage } from "./ProductCardManage";
 import axiosInstance from "@/shared/api/axiosInstance";
+import { DownloadPDF } from "../DownloadPDF";
 
 // Интерфейс для типов данных о продуктах
 interface Product {
@@ -51,6 +52,7 @@ export const ProductAdmin: React.FC = () => {
 	return (
 		<div className="border rounded m-2 p-4">
 			<h1 className="text-2xl font-bold mb-4">Управление товарами</h1>
+			<DownloadPDF />
 
 			{/* Состояние загрузки и ошибки */}
 			{isLoading && <p>Загрузка товаров...</p>}
