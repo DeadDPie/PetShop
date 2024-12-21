@@ -12,6 +12,8 @@ import {
 } from "@/shared/ui";
 import { Filter } from "@/shared/ui/Filter/Filter";
 import { useGetProductsQuery } from "@/pages/admin/hooks/useGetProductsQuery";
+import { useGetAnimalTypes } from "@/pages/admin/hooks/AnimalType/useGetAnimalTypes";
+import { useGetBrands } from "@/pages/admin/hooks/Brand/useGetBrands";
 
 export const Category = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
@@ -33,32 +35,59 @@ export const Category = () => {
 		},
 	});
 
+  	const { data: AnimalTypes } = useGetAnimalTypes();
+    const { data: brands } = useGetBrands();
 	// Фильтрация продуктов
 	const filteredProducts = data?.rows.filter((product) => {
-		const matchesCategory = selectedCategory
-			? product.categoryId === parseInt(selectedCategory, 10)
-			: true;
-		const matchesTypes = selectedTypes.length
-			? selectedTypes.includes(String(product.animalTypeId))
-			: true;
-		const matchesBrands = selectedBrands.length
-			? selectedBrands.includes(String(product.brandId))
-			: true;
-		const matchesMinPrice = selectedMinPrice
-			? product.price >= parseInt(selectedMinPrice, 10)
-			: true;
-		const matchesMaxPrice = selectedMaxPrice
-			? product.price <= parseInt(selectedMaxPrice, 10)
-			: true;
+    // Получаем IDs для выбранных типов и брендов на основе их имен
+    const selectedTypeIds = selectedTypes
+        .map((typeName) => {
+            const foundType = AnimalTypes?.find((type) => type.name === typeName);
+            return foundType ? foundType.animal_type_id : null;
+        })
+        .filter((id): id is number => id !== null); // Убираем null значения
 
-		return (
-			matchesCategory &&
-			matchesTypes &&
-			matchesBrands &&
-			matchesMinPrice &&
-			matchesMaxPrice
-		);
-	});
+    const selectedBrandIds = selectedBrands
+        .map((brandName) => {
+            const foundBrand = brands?.find((brand) => brand.name === brandName);
+            return foundBrand ? foundBrand.brand_id : null;
+        })
+        .filter((id): id is number => id !== null); // Убираем null значения
+
+    // Проверяем соответствие категории
+    const matchesCategory = selectedCategory
+        ? product.categoryId === parseInt(selectedCategory, 10)
+        : true;
+
+    // Проверяем соответствие типов животных
+    const matchesTypes = selectedTypes.length
+        ? selectedTypeIds.includes(product.animalTypeId)
+        : true;
+
+    // Проверяем соответствие брендов
+    const matchesBrands = selectedBrands.length
+        ? selectedBrandIds.includes(product.brandId)
+        : true;
+
+    // Проверяем соответствие минимальной цены
+    const matchesMinPrice = selectedMinPrice
+        ? product.price >= parseInt(selectedMinPrice, 10)
+        : true;
+
+    // Проверяем соответствие максимальной цены
+    const matchesMaxPrice = selectedMaxPrice
+        ? product.price <= parseInt(selectedMaxPrice, 10)
+        : true;
+
+    // Возвращаем продукт, который проходит все фильтры
+    return (
+        matchesCategory &&
+        matchesTypes &&
+        matchesBrands &&
+        matchesMinPrice &&
+        matchesMaxPrice
+    );
+});
 
 	// Обработка клика по категории
 	const handleCategoryClick = (categoryId: string) => {
@@ -159,7 +188,11 @@ export const Category = () => {
 						<div className="flex flex-col w-full items-center">
 							<div className="xl:min-h-[650px] grid grid-cols-2 min-[450px]:grid-cols-3 lg:grid-cols-4 gap-x-[35px] gap-y-6 xl:min-w-[945px]">
 								{filteredProducts?.map((product) => (
-									<ProductCard key={product.id} {...product} />
+									<ProductCard
+										key={product.id}
+										tag={product.tagId}
+										{...product}
+									/>
 								))}
 							</div>
 							<Pagination

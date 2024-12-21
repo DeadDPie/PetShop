@@ -43,7 +43,7 @@ export const Categories = () => {
 						))} */}
 						{AnimalTypes && AnimalTypes.length > 0
 							? AnimalTypes.map(
-									(item: { category_id: number; name: string }) => (
+									(item: { animal_type_id: number; name: string }) => (
 										<span>{item.name}</span>
 									)
 							  )

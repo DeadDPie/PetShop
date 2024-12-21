@@ -5,6 +5,7 @@ import { Button } from "../Button/Button";
 import { useLiked } from "@/shared/contexts/liked";
 import { useCart } from "@/shared/contexts/cart";
 import { ProductProps } from "@/shared/api/types/types";
+import { useGetTags } from "@/pages/admin/hooks/Tag/useGetTags";
 
 export const ProductCard = (product: ProductProps) => {
 	const { liked, setLiked } = useLiked();
@@ -25,17 +26,16 @@ export const ProductCard = (product: ProductProps) => {
 			setCart([...cart, { id: product.id, amount: 1, price: product.price }]);
 		}
 	};
+	const { data: tags } = useGetTags();
 	const SERVER_URL = "http://localhost:3000";
 	return (
 		<div className="flex flex-col items-center justify-between w-[129px] h-[197px] xl:h-[299px] gap-[5px] xl:gap-[10px] xl:w-[200px]">
 			{product.image && (
 				<div
 					className={`flex-grow w-full h-full overflow-hidden relative cursor-pointer ${
-						product.tag === "Новинка" &&
-						"rounded-[13px] border-[3px] border-pink"
+						product.tag === 2 && "rounded-[13px] border-[3px] border-pink"
 					}  ${
-						product.tag === "Эксклюзив" &&
-						"rounded-[13px] border-[3px] border-yellow"
+						product.tag === 3 && "rounded-[13px] border-[3px] border-yellow"
 					}`}
 				>
 					<Link
@@ -53,10 +53,13 @@ export const ProductCard = (product: ProductProps) => {
 					</Link>
 					<div
 						className={`absolute left-1 xl:left-[10px] text-white text-xs xl:text-base font-comfortaa rounded-[20px] top-1 xl:top-[12px] px-1 xl:px-3 py-1 ${
-							product.tag === "Новинка" && "bg-pink"
-						}  ${product.tag === "Эксклюзив" && "bg-yellow"}`}
+							product.tag === 2 && "bg-pink"
+						}  ${product.tag === 3 && "bg-yellow"}`}
 					>
-						{product.tag}
+						{tags &&
+							tags.map((tag: any) =>
+								tag.tag_id === product.tag ? tag.name : null
+							)}
 					</div>
 					{liked.includes(product.id) ? (
 						<Heart

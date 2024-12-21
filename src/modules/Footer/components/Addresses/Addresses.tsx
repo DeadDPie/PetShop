@@ -8,7 +8,6 @@ export const Addresses = () => {
 
 	if (isLoading) return <p>Загрузка адресов...</p>;
 	if (error) return <p>Ошибка при загрузке: {error.message}</p>;
-	console.log(data);
 	return (
 		<div className="flex flex-col gap-3">
 			<div className="text-xl">Адреса магазинов</div>
