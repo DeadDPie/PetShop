@@ -122,7 +122,7 @@ export const Product = () => {
 						<div className="flex flex-col gap-[61px]">
 							<div className="w-full pl-[13px] lg:flex hidden justify-between flex-col gap-[10px]">
 								<p className="text-[32px]">{product.price}₽</p>
-								{cart.find((cart) => cart.id === product.id) ? (
+								{/* {cart.find((cart) => cart.id === product.id) ? (
 									<Button
 										variant="OUTLINE"
 										className="px-[21px] py-[13px] rounded-[12px] text-[18px] max-w-[245px]"
@@ -148,7 +148,7 @@ export const Product = () => {
 									{liked.includes(product.id)
 										? "Удалить из избранного"
 										: "Добавить в избранное"}
-								</Button>
+								</Button> */}
 							</div>
 						</div>
 					</div>
