@@ -49,6 +49,13 @@ export const SignIn = () => {
 			localStorage.setItem("userId", userId.toString()); // Сохраняем как строку
 		}
 
+		const role = postLoginMutationResponse.user.role;
+
+		// Сохраняем `id` пользователя в localStorage
+		if (role) {
+			localStorage.setItem("role", role.toString()); // Сохраняем как строку
+		}
+
 		navigate("/animal");
 	};
 
