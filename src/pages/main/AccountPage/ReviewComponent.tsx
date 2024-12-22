@@ -14,6 +14,7 @@ interface OrderItem {
 
 interface ReviewData {
 	reviewText: string;
+	rating: number;
 	product: {
 		connect: {
 			product_id: number;
@@ -63,6 +64,7 @@ export const ReviewComponent = () => {
 
 	// Состояния для отзывов
 	const [reviewText, setReviewText] = useState<string>("");
+	const [rating, setRating] = useState<number>();
 	const [selectedProductId, setSelectedProductId] = useState<number | null>(
 		null
 	);
@@ -101,6 +103,7 @@ export const ReviewComponent = () => {
 		const userId = parseInt(localStorage.getItem("userId")!, 10);
 		const reviewData: ReviewData = {
 			reviewText,
+			rating,
 			product: {
 				connect: { product_id: selectedProductId },
 			},
@@ -183,6 +186,16 @@ export const ReviewComponent = () => {
 							className="w-full p-4 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
 							rows={4}
 						/>
+						<input
+							type="number"
+							min="1"
+							max="5"
+							value={rating || ""}
+							onChange={(e) => setRating(parseInt(e.target.value, 10))}
+							placeholder="Введите рейтинг (1-5)"
+							className="w-full p-2 border border-gray-300 rounded-lg mb-4"
+						/>
+
 						<Button
 							onClick={handleSubmitReview}
 							disabled={isReviewLoading}
