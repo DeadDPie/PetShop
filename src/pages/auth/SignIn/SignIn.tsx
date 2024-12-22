@@ -93,12 +93,12 @@ export const SignIn = () => {
 							<Typography variant="h4" className=" xl:text-xl">
 								Восстановить пароль
 							</Typography>
-						</button>
+						</button> */}
 						<button onClick={() => navigate("/sign-up")}>
 							<Typography variant="h4" className=" xl:text-xl">
 								Зарегистрироваться
 							</Typography>
-						</button> */}
+						</button>
 					</div>
 				</div>
 			</form>

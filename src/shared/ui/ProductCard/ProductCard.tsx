@@ -52,9 +52,13 @@ export const ProductCard = (product: ProductProps) => {
 						/>
 					</Link>
 					<div
-						className={`absolute left-1 xl:left-[10px] text-white text-xs xl:text-base font-comfortaa rounded-[20px] top-1 xl:top-[12px] px-1 xl:px-3 py-1 ${
-							product.tag === 2 && "bg-pink"
-						}  ${product.tag === 3 && "bg-yellow"}`}
+						className={` ${
+							product.tag === 2 &&
+							"bg-pink absolute left-1 xl:left-[10px] text-white text-xs xl:text-base font-comfortaa rounded-[20px] top-1 xl:top-[12px] px-1 xl:px-3 py-1"
+						}  ${
+							product.tag === 3 &&
+							"bg-yellow absolute left-1 xl:left-[10px] text-white text-xs xl:text-base font-comfortaa rounded-[20px] top-1 xl:top-[12px] px-1 xl:px-3 py-1"
+						}`}
 					>
 						{tags &&
 							tags.map((tag: any) =>
