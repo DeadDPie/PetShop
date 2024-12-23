@@ -32,7 +32,7 @@ export const ProductCardManage: React.FC<{ product: Product }> = ({
 			)}
 			<p className="text-gray-700 mb-2">{product.description}</p>
 			<p className="text-lg font-bold text-gray-900 mb-1">{product.price}₽</p>
-			<p className="text-sm text-gray-600">Рейтинг: {product.rating} ⭐️</p>
+			{/* <p className="text-sm text-gray-600">Рейтинг: {product.rating} ⭐️</p> */}
 		</div>
 	);
 };

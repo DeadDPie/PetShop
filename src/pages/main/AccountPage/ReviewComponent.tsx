@@ -35,6 +35,13 @@ const fetchOrderItems = async (): Promise<OrderItem[]> => {
 	return response.json();
 };
 
+const fetchOrders = async () => {
+	const response = await fetch("http://localhost:3000/order");
+	if (!response.ok) {
+		throw new Error("Ошибка при загрузке данных");
+	}
+	return response.json();
+};
 const submitReview = async (reviewData: ReviewData): Promise<void> => {
 	const response = await fetch("http://localhost:3000/review", {
 		method: "POST",
@@ -60,6 +67,10 @@ export const ReviewComponent = () => {
 	} = useQuery<OrderItem[]>({
 		queryKey: ["orderItems"],
 		queryFn: fetchOrderItems,
+	});
+	const { data: orders } = useQuery<OrderItem[]>({
+		queryKey: ["orders"],
+		queryFn: fetchOrders,
 	});
 
 	// Состояния для отзывов
@@ -124,9 +135,23 @@ export const ReviewComponent = () => {
 			</div>
 		);
 
+	const userId = Number(localStorage.getItem("userId"));
+
+	const ordersIds = orders
+		?.filter((order) => order.userId === userId) // Сравниваем userId с order.userId
+		.map((order) => order.order_id);
+
+	console.log("Order IDs:", ordersIds);
+
+	// Фильтрация элементов заказов
+	const filteredOrderItems = orderItems?.filter(
+		(item) => ordersIds?.includes(item.orderId) // Проверяем, содержится ли orderId в ordersIds
+	);
+	console.log("Filtered Order Items:", filteredOrderItems);
+
 	// Уникальные товары
 	const uniqueProducts = Array.from(
-		new Set(orderItems?.map((item) => item.productId))
+		new Set(filteredOrderItems?.map((item) => item.productId))
 	).map((productId) =>
 		Products?.rows.find((product) => product.id === productId)
 	);
@@ -137,6 +162,7 @@ export const ReviewComponent = () => {
 				Мои заказанные товары
 			</Typography>
 			<div className="flex flex-row  max-w-4xl mx-auto p-4">
+				{uniqueProducts.length == 0 && <div>Нет товаров</div>}
 				<ul className=" space-y-4 m-2">
 					{uniqueProducts.map(
 						(product) =>

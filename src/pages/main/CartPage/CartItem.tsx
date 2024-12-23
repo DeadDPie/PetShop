@@ -1,30 +1,37 @@
 import { Link } from "react-router-dom";
 import { X } from "tabler-icons-react";
 
-import { Button } from "@/shared/ui";
-import { CartProps, useCart } from "@/shared/contexts/cart";
+import { useCart } from "@/shared/contexts/cart";
 import { ProductProps } from "@/shared/api/types/types";
+
 export const CartItem = (product: ProductProps) => {
 	const { cart, setCart } = useCart();
 	const cartItem = cart.find((item) => item.id === product.id);
 
-	const changCart = (change: number) => {
+	const updateCart = (change: number) => {
 		if (change !== 0) {
-			setCart((prevCart: CartProps[]) => {
-				return prevCart.map((cartItem) => {
-					if (cartItem.id === product.id) {
-						cartItem.amount += change;
-					}
-					return cartItem;
-				});
-			});
+			setCart((prevCart) =>
+				prevCart.map((cartItem) =>
+					cartItem.id === product.id
+						? { ...cartItem, amount: cartItem.amount + change }
+						: cartItem
+				)
+			);
 		} else {
-			setCart((prevCart: CartProps[]) => {
-				return prevCart.filter((cartItem) => cartItem.id !== product.id);
-			});
+			setCart((prevCart) =>
+				prevCart.filter((cartItem) => cartItem.id !== product.id)
+			);
 		}
 	};
+
+	const handleRemove = () => {
+		setCart((prevCart) =>
+			prevCart.filter((cartItem) => cartItem.id !== product.id)
+		);
+	};
+
 	const SERVER_URL = "http://localhost:3000";
+
 	return (
 		<div className="w-full flex flex-row border rounded-xl justify-between border-greyDark p-2 md:p-4">
 			<div className="flex md:gap-[56px]">
@@ -44,7 +51,7 @@ export const CartItem = (product: ProductProps) => {
 					<div className="h-[29px] md:h-[40px] mb-1">
 						<button
 							className="text-sm px-[14px] h-full py-1 md:px-[20px] md:text-xl bg-grey border-2 border-grey rounded-l-[12px] hover:bg-greyDark"
-							onClick={() => changCart(-1)}
+							onClick={() => updateCart(-1)}
 							disabled={cartItem?.amount === 1}
 						>
 							-
@@ -54,7 +61,7 @@ export const CartItem = (product: ProductProps) => {
 						</button>
 						<button
 							className="text-sm px-[14px] py-1 h-full md:px-[20px] md:text-xl bg-grey border-2 border-grey rounded-r-[12px] hover:bg-greyDark"
-							onClick={() => changCart(1)}
+							onClick={() => updateCart(1)}
 						>
 							+
 						</button>
@@ -62,21 +69,13 @@ export const CartItem = (product: ProductProps) => {
 				</div>
 			</div>
 			<div className="flex flex-col place-content-between items-center pb-3">
-				<button>
-					<X></X>
+				<button onClick={handleRemove}>
+					<X />
 				</button>
-
-				<div className="felx justify-center text-base font-medium md:text-2xl ">
+				<div className="flex justify-center text-base font-medium md:text-2xl">
 					<p>{product.price}₽</p>
 				</div>
 			</div>
 		</div>
 	);
 };
-/*<Button
-          variant="OUTLINE"
-          className="text-xs text-[black] border-greyDark rounded-[10px] px-1 md:px-2 py-[4px] md:text-base "
-          onClick={() => changCart(0)}
-        >
-          Удалить
-        </Button>*/

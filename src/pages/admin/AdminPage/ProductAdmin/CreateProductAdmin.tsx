@@ -55,6 +55,7 @@ export const CreateProductAdmin: React.FC = () => {
 			// Отправка данных продукта
 			const response = await axiosInstance.post("/product", formData);
 			console.log("Продукт создан:", response.data);
+			alert("Товар успешно создан!");
 
 			if (fileData) {
 				// Подготовка данных для загрузки файла
@@ -79,10 +80,10 @@ export const CreateProductAdmin: React.FC = () => {
 	};
 
 	return (
-		<div className="border rounded m-2 p-4 max-w-md">
-			<h1 className="text-2xl font-bold mb-4">Управление категориями</h1>
+		<div className=" border rounded m-2 p-4 max-w-md">
+			<h1 className="text-2xl font-bold mb-4">Управление товарами</h1>
 			<form onSubmit={handleSubmit}>
-				<label className=" m-2">Title:</label>
+				<label className=" m-2">Название:</label>
 				<br />
 				<input
 					className="border rounded m-2"
@@ -94,7 +95,7 @@ export const CreateProductAdmin: React.FC = () => {
 				/>
 
 				<div>
-					<label className=" m-2">Description:</label>
+					<label className=" m-2">Описание:</label>
 					<br />
 					<textarea
 						className="border rounded  m-2"
@@ -105,7 +106,7 @@ export const CreateProductAdmin: React.FC = () => {
 					/>
 				</div>
 				<div>
-					<label className=" m-2">Price:</label>
+					<label className=" m-2">Цена:</label>
 					<br />
 					<input
 						className="border rounded m-2"
@@ -116,8 +117,8 @@ export const CreateProductAdmin: React.FC = () => {
 						required
 					/>
 				</div>
-				<div>
-					<label className=" m-2">Rating:</label>
+				{/* <div>
+					<label className=" m-2">Оценка:</label>
 					<br />
 					<input
 						className="border rounded m-2"
@@ -128,9 +129,9 @@ export const CreateProductAdmin: React.FC = () => {
 						onChange={handleChange}
 						required
 					/>
-				</div>
+				</div> */}
 				<div>
-					<label className=" m-2">Category ID:</label>
+					<label className=" m-2">категория ID:</label>
 					<br />
 					<input
 						className="border rounded m-2"
@@ -142,7 +143,7 @@ export const CreateProductAdmin: React.FC = () => {
 					/>
 				</div>
 				<div>
-					<label className=" m-2">Brand ID:</label>
+					<label className=" m-2">Бренд ID:</label>
 					<br />
 					<input
 						className="border rounded m-2"
@@ -154,7 +155,7 @@ export const CreateProductAdmin: React.FC = () => {
 					/>
 				</div>
 				<div>
-					<label className=" m-2">Animal Type ID:</label>
+					<label className=" m-2">Тип животного ID:</label>
 					<br />
 					<input
 						className="border rounded m-2"
@@ -166,7 +167,7 @@ export const CreateProductAdmin: React.FC = () => {
 					/>
 				</div>
 				<div>
-					<label className=" m-2">Tag ID:</label>
+					<label className=" m-2">Тэг ID:</label>
 					<br />
 					<input
 						className="border rounded m-2"

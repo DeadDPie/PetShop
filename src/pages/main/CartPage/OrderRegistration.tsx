@@ -31,7 +31,7 @@ export const OrderRegistration = () => {
 		e.preventDefault();
 
 		const orderDate = new Date().toISOString(); // Using the current date
-		const userId = 2; // Example: Replace this with the actual user ID
+		const userId = Number(localStorage.getItem("userId")); // Example: Replace this with the actual user ID
 		const storeAddressId = parseInt(formData.store, 10); // The selected store address ID
 
 		try {

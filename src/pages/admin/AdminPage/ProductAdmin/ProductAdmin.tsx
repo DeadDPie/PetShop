@@ -68,9 +68,9 @@ export const ProductAdmin: React.FC = () => {
 						>
 							<ProductCardManage product={product} />
 							<div className="flex justify-end mt-2 space-x-2">
-								<Button variant="OUTLINE">
+								{/* <Button variant="OUTLINE">
 									<Edit size={18} />
-								</Button>
+								</Button> */}
 								<Button
 									variant="OUTLINE"
 									color="red"

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useStoreAddresses } from "@shared/api/hooks/useStoreAddresses";
 import { Button } from "@/shared/ui";
-import { Trash } from "tabler-icons-react";
+import { Edit, Trash } from "tabler-icons-react";
 import { useAddStoreAddress } from "../../hooks/StoreAddress/useAddStoreAddress";
 import { useDeleteStoreAddress } from "../../hooks/StoreAddress/useDeleteStoreAddress";
 
@@ -71,9 +71,12 @@ export const StoreAddressesAdmin: React.FC = () => {
 								className="border rounded p-4 flex justify-between items-center"
 							>
 								<span>{address.address}</span>
+								<Button>
+									<Edit />
+								</Button>
 								<Button
 									onClick={() => handleDelete(address.store_adress_id)}
-									className="bg-red-400"
+									className="bg-red-400 mx-1"
 								>
 									<Trash />
 								</Button>

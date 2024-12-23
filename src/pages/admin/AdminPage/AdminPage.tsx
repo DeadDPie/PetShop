@@ -12,8 +12,9 @@ const AdminPage: React.FC = () => {
 	return (
 		<div>
 			<ProductAdmin />
-			<CreateProductAdmin />
-			<div className="p-4 grid  grid-cols-3">
+
+			<div className="p-4 grid  grid-cols-5">
+				<CreateProductAdmin />
 				<AnimalTypeAdmin />
 				<CategoryAdmin />
 				<BrandAdmin />
