@@ -12,8 +12,12 @@ export const Button = ({
 }: ButtonProps) => {
   return (
     <button
-      className={`${variant === "FILL" && "bg-primary text-white"} ${
-        variant === "OUTLINE" && "bg-white border-primary text-primary"
+      className={`${
+        variant === "FILL" &&
+        "bg-primary text-white hover:bg-primaryDark rounded-[12px] "
+      } ${
+        variant === "OUTLINE" &&
+        "bg-white border border-primary text-primary hover:bg-primary hover:text-white"
       } rounded-[12px] px-4 py-[14px] font-bold font-comfortaa ${className}`}
       {...props}
     >
